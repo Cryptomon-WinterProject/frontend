@@ -1,13 +1,81 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Manrope", sans-serif;
+  font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  /* Font Sizes */
+  --font-10: 1rem;
+  --font-12: 1.2rem;
+  --font-13: 1.3rem;
+  --font-135: 1.35rem;
+  --font-14: 1.4rem;
+  --font-15: 1.5rem;
+  --font-16: 1.6rem;
+  --font-17: 1.7rem;
+  --font-18: 1.8rem;
+  --font-20: 2rem;
+  --font-22: 2.2rem;
+  --font-24: 2.4rem;
+  --font-26: 2.6rem;
+  --font-30: 3rem;
+  --font-36: 3.6rem;
+  --font-38: 3.8rem;
+  --font-40: 4rem;
+  --font-42: 4.2rem;
+  --font-45: 4.5rem;
+  --font-52: 5.2rem;
+  --fontv-4: 4vw;
+  --fontv-3: 3vw;
+  --fontv-35: 3.5vw;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* Colors */
+  --white: #ffffff;
+  --pure-black: #000000;
+  --pri-black: #222222;
+  --sec-black: #444444;
+  --ter-black: #888888;
+  --sec-grey: #dddddd;
+  --ter-grey: #f0f0f0;
+  --yellow-primary: #ffcb05;
+  --red-primary: #ff1c1c;
+  --green-primary: #0fb900;
+  --green-background: #fbfffa;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: rgba(230, 230, 230, 0.2);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: rgba(120, 120, 120, 0.3);
+  outline: 1px solid slategrey;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input {
+  font-family: "Manrope", sans-serif;
 }
