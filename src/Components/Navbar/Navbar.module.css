@@ -1,0 +1,17 @@
+.NavbarWrapper {
+  height: 100vh;
+  background: var(--yellow-primary);
+  width: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Category {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
