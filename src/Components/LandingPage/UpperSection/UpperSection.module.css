@@ -1,0 +1,131 @@
+.UpperSectionWrapper {
+  margin-left: 3rem;
+  height: 25rem;
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.CryptomonLogo {
+  width: 12rem;
+  margin-top: 2rem;
+}
+.ProfileHeading {
+  font-size: var(--font-18);
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.ProfileWrapper {
+  display: flex;
+  align-items: center;
+}
+.ProfilePic {
+  height: 13rem;
+}
+.ProfileInfo {
+  margin-left: 1.5rem;
+  width: 23rem;
+}
+.ProfileName {
+  font-size: var(--font-17);
+  font-weight: 700;
+}
+.ProfileLevelContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.ProfileLevelWrapper {
+  position: relative;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ProfileLevel {
+  position: absolute;
+  font-size: var(--font-10);
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.ProgressBarBorder {
+  margin-top: 1rem;
+  width: 13rem;
+  height: 1.1rem;
+  border-radius: 15px;
+  border: 1px solid var(--ter-black);
+}
+.ProgressBarFill {
+  height: 100%;
+  background: var(--yellow-primary);
+  border-radius: 13px;
+}
+.ProfileXP {
+  margin-top: 0.5rem;
+  font-size: var(--font-12);
+  font-weight: 700;
+}
+.MonCoinBalanceContainer {
+  border: 1px solid var(--ter-black);
+  border-radius: 8px;
+  display: flex;
+  padding: 0.8rem;
+  align-items: center;
+  margin-top: 1rem;
+  justify-content: space-around;
+}
+.MonCoinBalanceHeading {
+  font-size: var(--font-13);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.MonCoinBalance {
+  display: flex;
+  align-items: center;
+}
+.MonCoinBalanceNumber {
+  font-size: var(--font-13);
+  font-weight: 700;
+  color: var(--yellow-primary);
+}
+.MonCoinIcon {
+  height: 1.5rem;
+  object-fit: cover;
+  margin-left: 0.5rem;
+}
+.AddBalanceButtonWrapper {
+  border: 1px solid var(--ter-black);
+  border-radius: 30px;
+  padding: 0rem 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ter-black);
+  cursor: pointer;
+}
+.PlusIcon {
+  font-size: var(--font-22);
+  margin-right: 0.3rem;
+}
+.AddBalanceButtonText {
+  font-size: var(--font-12);
+}
+@media only screen and (max-width: 475px) {
+  .UpperSectionWrapper {
+    height: 40rem;
+  }
+  .ProfileWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ProfileInfo {
+    margin-left: 0;
+  }
+  .ProfileName {
+    margin-top: 1rem;
+  }
+}

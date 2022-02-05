@@ -1,0 +1,17 @@
+.LowerSectionContainer {
+  margin-left: 3rem;
+}
+.LowerSectionHeading {
+  font-size: var(--font-18);
+  font-weight: 600;
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+.CollectionContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
