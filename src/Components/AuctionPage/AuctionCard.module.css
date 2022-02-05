@@ -142,4 +142,5 @@
   margin-left: 1.6rem;
   border-radius: 4px;
   font-size: var(--font-14);
+  cursor: pointer;
 }
