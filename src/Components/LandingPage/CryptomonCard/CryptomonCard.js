@@ -2,8 +2,8 @@ import React from "react";
 
 import styles from "./CryptomonCard.module.css";
 
-import PokemonImage from "../../Assets/LandingPage/Pokemon.png";
-import StarLevel from "../../Assets/LandingPage/StarLevel.svg";
+import PokemonImage from "../../../Assets/LandingPage/Pokemon.png";
+import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
 
 function CryptomonCard({ monXP = 200, totalXP = 300, readyTime = 25 }) {
   return (
@@ -33,6 +33,7 @@ function CryptomonCard({ monXP = 200, totalXP = 300, readyTime = 25 }) {
           readyTime
             ? { borderColor: "var(--red-primary)", color: "var(--red-primary)" }
             : {
+                cursor: "pointer",
                 borderColor: "var(--green-primary)",
                 color: "var(--green-primary)",
               }

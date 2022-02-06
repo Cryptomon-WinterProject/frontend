@@ -1,5 +1,6 @@
 .NavbarWrapper {
   height: 100vh;
+  position: fixed;
   background: var(--yellow-primary);
   width: 6rem;
   display: flex;

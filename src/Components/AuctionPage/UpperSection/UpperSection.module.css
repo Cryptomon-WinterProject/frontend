@@ -1,0 +1,27 @@
+.UpperSectionWrapper {
+  margin-left: 3rem;
+  height: 16rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.CryptomonLogo {
+  width: 12rem;
+  margin-top: 2rem;
+}
+
+/* .SellButton {
+  text-transform: uppercase;
+  font-size: var(--font-size-20);
+  font-weight: 600;
+  color: var(--ter-black);
+  background-color: var(--white);
+  border-radius: 7px;
+  border: 1px solid var(--ter-black);
+  margin-top: 6rem;
+  width: 18rem;
+  height: 3rem;
+} */
+.SellButton {
+  /* font-size: var(--font-20) !important; */
+}
