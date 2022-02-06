@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./AuctionPage.module.css";
-// import LowerSection from "../../Components/AuctionPage/LowerSection";
+import LowerSection from "../../Components/AuctionPage/LowerSection";
 import UpperSection from "../../Components/AuctionPage/UpperSection";
 import Navbar from "../../Components/Navbar";
 
@@ -10,7 +10,7 @@ function AuctionPage() {
       <Navbar />
       <div className={styles.AuctionPageContent}>
         <UpperSection />
-        {/* <LowerSection /> */}
+        <LowerSection />
       </div>
     </div>
   );
