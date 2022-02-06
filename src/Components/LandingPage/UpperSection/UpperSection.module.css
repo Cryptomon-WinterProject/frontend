@@ -103,7 +103,7 @@
   font-size: var(--font-13) !important;
 }
 
-@media only screen and (max-width: 475px) {
+@media only screen and (max-width: 500px) {
   .UpperSectionWrapper {
     height: 40rem;
   }
@@ -116,5 +116,29 @@
   }
   .ProfileName {
     margin-top: 1rem;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .UpperSectionWrapper {
+    margin-left: 2%;
+    margin-right: 5%;
+  }
+  .ProfileInfo {
+    width: 80%;
+  }
+  .AddBalanceButton {
+    padding: 4% 5% !important;
+    font-size: var(--font-11) !important;
+  }
+  .MonCoinBalanceHeading {
+    font-size: var(--font-12);
+  }
+  .MonCoinBalanceNumber {
+    font-size: var(--font-12);
+  }
+}
+@media only screen and (max-width: 320px) {
+  .ProfileInfo {
+    width: 100%;
   }
 }
