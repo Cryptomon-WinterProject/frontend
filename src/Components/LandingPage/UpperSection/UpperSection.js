@@ -5,6 +5,8 @@ import Logo from "../../../Assets/General/Logo.svg";
 import ProfilePic from "../../../Assets/General/ProfilePic.png";
 import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import MonCoinIcon from "../../../Assets/LandingPage/M-moncoin.svg";
+import Button from "../../Button";
+import { ReactComponent as PlusIcon } from "../../../Assets/General/Plus.svg";
 
 function UpperSection({
   playerXP = 200,
@@ -49,10 +51,15 @@ function UpperSection({
                 />
               </div>
             </div>
-            <div className={styles.AddBalanceButtonWrapper}>
-              <p className={styles.PlusIcon}>+</p>
-              <p className={styles.AddBalanceButtonText}>Add Balance</p>
-            </div>
+            <Button
+              name="Add Balance"
+              primaryColor="var(--ter-black)"
+              inverted
+              wrapperClass={styles.AddBalanceButton}
+              withIcon
+              IconComp={PlusIcon}
+              hoverBgColor="var(--white)"
+            />
           </div>
         </div>
       </div>

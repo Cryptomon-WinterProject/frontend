@@ -1,8 +1,39 @@
-.button {
-  background-color: #000000;
-  border: none;
+.Button {
+  text-transform: uppercase;
+  width: fit-content;
+  /* display: inline; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
+  white-space: nowrap;
   outline: none;
-  color: #ffffff;
-  padding: 1vw;
+  border: none;
+  background-color: transparent;
+  padding: 0.9rem 2rem;
+  font-weight: 600;
+  color: white;
   cursor: pointer;
+  border-radius: 0.4rem;
+  background: var(--main-color);
+  transition: background 0.15s ease-in-out;
+  font-family: "Manrope", sans-serif;
+  font-size: var(--font-16);
+}
+
+.Icon {
+  width: fit-content;
+  height: 1em;
+}
+
+.Inverted {
+  color: var(--main-color);
+  background: var(--white);
+  outline: 1px solid var(--main-color);
+}
+
+.Inverted:hover {
+  background: var(--main-hover-bg-color);
+  color: var(--main-hover-color);
+  outline: 1px solid var(--main-hover-color);
 }

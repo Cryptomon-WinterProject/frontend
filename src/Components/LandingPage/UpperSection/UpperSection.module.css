@@ -26,7 +26,7 @@
 }
 .ProfileInfo {
   margin-left: 1.5rem;
-  width: 23rem;
+  width: 25rem;
 }
 .ProfileName {
   font-size: var(--font-17);
@@ -70,7 +70,7 @@
 }
 .MonCoinBalanceContainer {
   border: 1px solid var(--ter-black);
-  border-radius: 8px;
+  border-radius: 1rem;
   display: flex;
   padding: 0.8rem;
   align-items: center;
@@ -96,24 +96,13 @@
   object-fit: cover;
   margin-left: 0.5rem;
 }
-.AddBalanceButtonWrapper {
-  border: 1px solid var(--ter-black);
-  border-radius: 30px;
-  padding: 0rem 1.5rem;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--ter-black);
-  cursor: pointer;
+.AddBalanceButton {
+  border-radius: 3rem !important;
+  padding: 0.7rem 2rem !important;
+  font-weight: 600 !important;
+  font-size: var(--font-13) !important;
 }
-.PlusIcon {
-  font-size: var(--font-22);
-  margin-right: 0.3rem;
-}
-.AddBalanceButtonText {
-  font-size: var(--font-12);
-}
+
 @media only screen and (max-width: 475px) {
   .UpperSectionWrapper {
     height: 40rem;
