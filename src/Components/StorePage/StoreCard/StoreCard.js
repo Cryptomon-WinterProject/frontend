@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./StoreCard.module.css";
 
 import PokemonImage from "../../../Assets/LandingPage/Pokemon.png";
-import { ReactComponent as Plus } from "../../../Assets/General/Plus.svg";
 import MonCoinIcon from "../../../Assets/LandingPage/M-moncoin.svg";
 import Button from "../../Button";
 
