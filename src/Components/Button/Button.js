@@ -14,6 +14,7 @@ function Button({
   iconClass,
   hoverBgColor,
   hoverColor,
+  reversed,
 }) {
   return (
     <button
@@ -23,7 +24,9 @@ function Button({
         " " +
         (inverted ? styles.Inverted : "") +
         " " +
-        wrapperClass
+        wrapperClass +
+        " " +
+        (reversed ? styles.Reversed : "")
       }
       style={{
         "--main-color": primaryColor,
