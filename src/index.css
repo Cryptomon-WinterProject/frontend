@@ -50,6 +50,7 @@ html {
   --red-primary: #ff1c1c;
   --green-primary: #0fb900;
   --green-background: #fbfffa;
+  --yellow-background: #fffff2;
 }
 
 html::-webkit-scrollbar {
