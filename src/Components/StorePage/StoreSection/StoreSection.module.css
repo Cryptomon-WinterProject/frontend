@@ -1,0 +1,16 @@
+.StoreWrraper {
+  margin-left: 3rem;
+}
+.CardCart {
+  display: flex;
+  align-items: center;
+  /* margin-top: 2rem; */
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+@media only screen and (max-width: 375px) {
+  .StoreWrraper {
+    margin-left: 2%;
+  }
+}
