@@ -24,6 +24,7 @@ html {
   --font-17: 1.7rem;
   --font-18: 1.8rem;
   --font-20: 2rem;
+  --font-21: 2.1rem;
   --font-22: 2.2rem;
   --font-24: 2.4rem;
   --font-26: 2.6rem;
@@ -50,6 +51,7 @@ html {
   --red-primary: #ff1c1c;
   --green-primary: #0fb900;
   --green-background: #fbfffa;
+  --yellow-background: #fffff2;
 }
 
 html::-webkit-scrollbar {

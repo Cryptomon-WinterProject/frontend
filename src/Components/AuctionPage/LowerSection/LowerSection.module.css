@@ -1,0 +1,17 @@
+.LowerSectionWrapper {
+  margin-left: 3rem;
+  margin-top: 1.8rem;
+}
+.Heading {
+  text-transform: uppercase;
+  font-size: var(--font-21);
+  font-weight: bold;
+}
+.Cards {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }

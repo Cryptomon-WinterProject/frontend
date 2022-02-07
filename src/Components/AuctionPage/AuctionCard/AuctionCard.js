@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./AuctionCard.module.css";
-import PokemonImage from "../../Assets/LandingPage/Pokemon.png";
-import StarLevel from "../../Assets/LandingPage/StarLevel.svg";
-import MonCoin from "../../Assets/LandingPage/M-moncoin.svg";
+import PokemonImage from "../../../Assets/LandingPage/Pokemon.png";
+import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
+import MonCoin from "../../../Assets/LandingPage/M-moncoin.svg";
 
 function AuctionCard({ monXP = 200, totalXP = 300, readyTime = 25 }) {
   return (
