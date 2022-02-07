@@ -1,0 +1,87 @@
+.PreLoaderWrapper {
+  background: url("../../Assets/SignUpPage/bggg\ 1.svg");
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+}
+
+.LoadingLogoBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4vmax;
+}
+
+.PreLoaderBoxWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  /* height: 80.5vh; */
+  height: 45rem;
+  margin: auto;
+  margin-top: 3vmax;
+  background: #ffffff;
+  border: 8px solid #444444;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 59px rgba(0, 0, 0, 0.25);
+  border-bottom: none;
+  border-top-left-radius: 6vmax;
+  border-top-right-radius: 6vmax;
+}
+
+.PreLoaderBoxBorder {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.CryptomomLogo {
+  margin-top: -4vmax;
+  width: 23vmax;
+  height: 23vmax;
+}
+
+.CryptomomGif {
+  object-fit: cover;
+  margin-top: -4vmax;
+  width: 30rem;
+  height: 22rem;
+}
+@media only screen and (max-width: 840px) {
+  .CryptomomGif {
+    width: 20rem;
+    height: 15rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .CryptomomLogo {
+    margin-top: -15vmax;
+    margin-bottom: 12vmax;
+    width: 18rem;
+    height: 12rem;
+  }
+  .CryptomomGif {
+    width: 18rem;
+    height: 12rem;
+  }
+  .PreLoaderBoxWrapper {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .CryptomomLogo {
+    margin-top: -15vmax;
+    margin-bottom: 12vmax;
+    width: 13rem;
+    height: 9rem;
+  }
+  .CryptomomGif {
+    width: 15rem;
+    height: 10rem;
+  }
+}
