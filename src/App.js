@@ -16,19 +16,16 @@ const App = () => {
   return (
     <Switch>
       <Route exact path="/">
-        {/* <LandingPage /> */}
-        {/* <AuctionPage /> */}
-        <BattlePage />
         <LandingPage />
+      </Route>
+      <Route exact path="/preloader">
+        <PreLoader />
       </Route>
       <Route exact path="/store">
         <StorePage />
       </Route>
       <Route exact path="/auction">
         <AuctionPage />
-      </Route>
-      <Route exact path="/preloader">
-        <PreLoader />
       </Route>
       <Route exact path="/signup">
         <SignUp />
