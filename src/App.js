@@ -3,6 +3,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import LandingPage from "./Containers/LandingPage";
+import AuctionPage from "./Containers/AuctionPage";
+import BattlePage from "./Containers/BattlePage";
 import StorePage from "./Containers/StorePage/StorePage";
 import AuctionPage from "./Containers/AuctionPage/index";
 import SignUp from "./Components/SignUp/SignUp";
@@ -17,14 +19,14 @@ const App = () => {
       <Route exact path="/">
         <LandingPage />
       </Route>
+      <Route exact path="/preloader">
+        <PreLoader />
+      </Route>
       <Route exact path="/store">
         <StorePage />
       </Route>
       <Route exact path="/auction">
         <AuctionPage />
-      </Route>
-      <Route exact path="/preloader">
-        <PreLoader />
       </Route>
       <Route exact path="/signup">
         <SignUp />
@@ -33,7 +35,7 @@ const App = () => {
         <Training />
       </Route>
       <Route exact path="/bid">
-          <PlaceBid />
+        <PlaceBid />
       </Route>
       <Route exact path="/addauction">
           <AddAuction />
