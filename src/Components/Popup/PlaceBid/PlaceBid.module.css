@@ -56,18 +56,19 @@
 .ButtonContainer {
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 .Button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 45%;
+  width: 47%;
   height: 60px;
   font-style: normal;
   font-weight: 400;
   text-transform: uppercase;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0.8rem;
   font-size: 13px;
   border: 2px solid #0fb900;
   border-radius: 4px;
@@ -77,10 +78,14 @@
   display: flex;
   width: 3.5rem;
   justify-content: space-between;
+  align-items: center;
 }
-
+.Amount{
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
 .moncoin {
-  height: 15px;
+  height: 17px;
   width: 15px;
   margin-left: 0.5rem;
 }
@@ -140,7 +145,8 @@
 .Rating {
   font-family: Venti CF;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 550;
   text-transform: uppercase;
-  color: #848484;
+  color: #767676;
 }

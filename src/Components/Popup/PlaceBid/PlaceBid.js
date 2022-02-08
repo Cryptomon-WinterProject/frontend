@@ -35,14 +35,16 @@ function PlaceBid() {
             <div className={styles.Button}>
               <div className={styles.ButtonHead}>Bid Starts From</div>
               <div className={styles.ButtonBody}>
-                50 <img src={moncoin} alt="" className={styles.moncoin} />
+                <span className={styles.bold}>50</span>
+                <img src={moncoin} alt="" className={styles.moncoin} />
               </div>
             </div>
 
             <div className={styles.Button}>
               <div className={styles.ButtonHead}>Highest Bid</div>
               <div className={styles.ButtonBody}>
-                50 <img src={moncoin} alt="" className={styles.moncoin} />
+                <span className={styles.bold}>50</span>
+                <img src={moncoin} alt="" className={styles.moncoin} />
               </div>
             </div>
           </div>
