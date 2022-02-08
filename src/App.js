@@ -6,7 +6,6 @@ import LandingPage from "./Containers/LandingPage";
 import AuctionPage from "./Containers/AuctionPage";
 import BattlePage from "./Containers/BattlePage";
 import StorePage from "./Containers/StorePage/StorePage";
-import AuctionPage from "./Containers/AuctionPage/index";
 import SignUp from "./Components/SignUp/SignUp";
 import PreLoader from "./Components/PreLoader/PreLoader";
 import Training from "./Components/Training Popup/Training";

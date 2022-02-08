@@ -1,2 +1,2 @@
-import AddAuction from "./PlaceBid";
+import AddAuction from "./AddAuction";
 export default AddAuction;
