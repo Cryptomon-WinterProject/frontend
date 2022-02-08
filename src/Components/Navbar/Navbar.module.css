@@ -16,3 +16,12 @@
   cursor: pointer;
   margin-top: 1rem;
 }
+@media only screen and (max-width: 375px) {
+  .NavbarWrapper {
+    width: 15%;
+  }
+  .Category {
+    width: 80%;
+    padding: 10%;
+  }
+}

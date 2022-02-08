@@ -17,11 +17,11 @@ function PreLoader() {
             alt="Cryptomon"
             className={styles.CryptomomLogo}
           />
-            <img
-              src={CryptomonGif}
-              alt="Cryptomon"
-              className={styles.CryptomomGif}
-            />
+          <img
+            src={CryptomonGif}
+            alt="Cryptomon"
+            className={styles.CryptomomGif}
+          />
         </div>
       </div>
     </div>

@@ -67,3 +67,11 @@
   width: fit-content;
   padding: 0rem 1rem;
 }
+@media only screen and (max-width: 375px) {
+  .CryptomonCardWrapper {
+    width: 92%;
+  }
+  .ProgressBarBorder {
+    width: 80%;
+  }
+}

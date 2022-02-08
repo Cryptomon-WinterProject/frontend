@@ -34,9 +34,7 @@ const SignUp = () => {
           </div>
 
           <div className={styles.LoginButtonBox}>
-            <button className={styles.LoginButton}>
-              Login
-            </button>
+            <button className={styles.LoginButton}>Login</button>
           </div>
         </div>
       </div>

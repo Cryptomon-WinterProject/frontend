@@ -1,0 +1,118 @@
+.WrapperWrapperWrapper {
+  margin-left: 2.8rem;
+  padding-top: 2.1rem;
+}
+
+.Heading {
+  font-weight: bold;
+  font-size: var(--font-20);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.AvialPokeList {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.CryptomonCardWrapper {
+  width: 12.5rem;
+  border: 2px solid var(--sec-grey);
+  border-radius: 0.5rem;
+}
+.MonProfile {
+  width: 100%;
+  height: 72%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.MonLevelXPWrapper,
+.MonLevelXPWrapper2 {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.LowerContainerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-top: 0.5rem;
+  padding-left: 0.9rem;
+}
+.StarLevel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.MonLevel {
+  z-index: 4;
+  color: var(--white);
+  font-weight: 500;
+}
+.MonName {
+  font-weight: 600;
+  font-size: var(--font-15);
+  text-transform: uppercase;
+  color: var(--sec-black);
+}
+.ChallengeList {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.UpperWrapper {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
+.chalProfile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.MonLevelXPWrapper2 {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  right: -8%;
+  top: 60%;
+}
+.LowerContainerWrapper2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2.2rem;
+}
+.chalName {
+  font-weight: 600;
+  font-size: var(--font-16);
+  text-transform: uppercase;
+  text-align: center;
+}
+.LowerContainerWrapper2 button {
+  padding: 0.9rem 2rem;
+  background: var(--white);
+  border: 1px solid var(--ter-black);
+  border-radius: 3.4rem;
+  font-weight: 500;
+  font-size: var(--font-14);
+  text-transform: uppercase;
+  color: var(--ter-black);
+}
+.Wrapper {
+  padding-top: 3.4rem;
+  padding-bottom: 1rem;
+}
+.ChallengeCardWrapper {
+  padding: 1.5rem 2.8rem;
+  border: 2px solid var(--sec-grey);
+  border-radius: 0.5rem;
+}
+@media only screen and (max-width: 380px) {
+  .WrapperWrapperWrapper {
+    margin-left: 1rem;
+  }
+}

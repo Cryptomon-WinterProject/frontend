@@ -1,0 +1,155 @@
+.PopupBg {
+  background-color: rgba(174, 174, 174, 0.224);
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.MainWrapper {
+  background-color: white;
+  height: 60rem;
+  width: 47rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 2rem;
+}
+
+.Header {
+  width: 100%;
+  padding: 0 2rem;
+  position: absolute;
+  top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.traingin_pokename {
+  height: 1.5rem;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: 800;
+  color: #ffcb05;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.traingin_pokename > span {
+  color: white;
+  padding-left: 0.7rem;
+}
+.cross {
+  height: 2rem;
+  cursor: pointer;
+}
+.PokeImg {
+  width: 100%;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+.DescriptionWrapper {
+  width: 100%;
+  padding: 2rem;
+  margin-top: -0.24rem;
+  background-color: white;
+}
+.duration {
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #444444;
+}
+
+.duration > span {
+  padding-left: 1rem;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.56rem;
+  text-transform: uppercase;
+  color: #ffcb05;
+}
+
+.rate {
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #444444;
+}
+
+.rate > span {
+  padding-left: 1rem;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.56rem;
+  text-transform: uppercase;
+  color: #ffcb05;
+}
+
+.duration_slider {
+  margin: 2.4rem;
+}
+
+.rate_slider {
+  margin: 2.4rem;
+}
+.rate > span > span {
+  padding-left: 0.3rem;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.56rem;
+  text-transform: uppercase;
+  color: #0fb900;
+}
+
+.paybtn {
+  width: 211px;
+  height: 44px;
+  left: 23px;
+  top: 534px;
+  background: #fbfffa;
+  border: 1px solid #0fb900;
+  box-sizing: border-box;
+  border-radius: 65px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.btn_content {
+  display: flex;
+  flex-direction: row;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #0fb900;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0rem 6px;
+  padding-left: 1.2rem;
+}
+.btn_content > span {
+  color: #ffcb05;
+  padding-left: 0.4rem;
+  font-size: 1.8rem;
+}
+
+.moncoin {
+  padding-left: 1rem;
+}

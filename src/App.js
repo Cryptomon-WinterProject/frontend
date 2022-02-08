@@ -2,31 +2,39 @@ import React from "react";
 
 import { Switch, Route } from "react-router-dom";
 
-<<<<<<< HEAD
-import Home from "./Containers/Home";
+import LandingPage from "./Containers/LandingPage";
+import AuctionPage from "./Containers/AuctionPage";
+import BattlePage from "./Containers/BattlePage";
+import StorePage from "./Containers/StorePage/StorePage";
+import AuctionPage from "./Containers/AuctionPage/index";
 import SignUp from "./Components/SignUp/SignUp";
 import PreLoader from "./Components/PreLoader/PreLoader";
-=======
-// import LandingPage from "./Containers/LandingPage";
-import AuctionPage from "./Containers/AuctionPage";
->>>>>>> 0f4a50761044ed6b6df57fd33f212d797668c2e6
+import Training from "./Components/Training Popup/Training";
+import PlaceBid from "./Components/Popup/PlaceBid";
 
 const App = () => {
   return (
     <Switch>
       <Route exact path="/">
-<<<<<<< HEAD
-        <Home />
+        <LandingPage />
+      </Route>
+      <Route exact path="/preloader">
+        <PreLoader />
+      </Route>
+      <Route exact path="/store">
+        <StorePage />
+      </Route>
+      <Route exact path="/auction">
+        <AuctionPage />
       </Route>
       <Route exact path="/signup">
         <SignUp />
       </Route>
-      <Route exact path="/preloader">
-        <PreLoader />
-=======
-        {/* <LandingPage /> */}
-        <AuctionPage />
->>>>>>> 0f4a50761044ed6b6df57fd33f212d797668c2e6
+      <Route exact path="/training">
+        <Training />
+      </Route>
+      <Route exact path="/bid">
+        <PlaceBid />
       </Route>
     </Switch>
   );

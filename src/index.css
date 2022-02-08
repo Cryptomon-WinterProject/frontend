@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
-
+@import "./Assets/Fonts/now/stylesheet.css";
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +6,8 @@
 }
 
 html {
-  font-family: "Manrope", sans-serif;
+  /* font-family: "Manrope", sans-serif; */
+  font-family: "Now";
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,6 +15,7 @@ html {
 :root {
   /* Font Sizes */
   --font-10: 1rem;
+  --font-11: 1.1rem;
   --font-12: 1.2rem;
   --font-13: 1.3rem;
   --font-135: 1.35rem;

@@ -14,6 +14,9 @@ const LowerSection = () => {
         <AuctionCard />
         <AuctionCard />
         <AuctionCard />
+        <AuctionCard />
+        <AuctionCard />
+        <AuctionCard />
       </div>
     </div>
   );

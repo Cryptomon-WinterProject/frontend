@@ -1,0 +1,25 @@
+.SwitchBarWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  justify-content: space-around;
+  border: 1px solid var(--sec-black);
+  padding: 0.5rem;
+  border-radius: 1.2rem;
+  text-transform: uppercase;
+  font-size: var(--font-16);
+  font-weight: 700;
+  color: var(--sec-black);
+  width: fit-content;
+}
+.SwitchStore {
+  padding: 1rem 2rem;
+  border-radius: 0.9rem;
+  cursor: pointer;
+}
+.SwitchAuction {
+  padding: 1rem 2rem;
+  border-radius: 0.9rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
