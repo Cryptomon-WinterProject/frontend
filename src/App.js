@@ -12,6 +12,7 @@ import Training from "./Components/Training Popup/Training";
 import PlaceBid from "./Components/Popup/PlaceBid";
 import AddAuction from "./Components/Popup/AddAuction/AddAuction";
 import ConfirmPurchase from "./Components/Popup/ConfirmPurchase/ConfirmPurchase";
+import AddBalance from "./Components/Popup/AddBalance/AddBalance";
 
 const App = () => {
   return (
@@ -42,6 +43,9 @@ const App = () => {
       </Route>
       <Route exact path="/confirm">
           <ConfirmPurchase />
+      </Route>
+      <Route exact path="/balance">
+          <AddBalance />
       </Route>
     </Switch>
   );
