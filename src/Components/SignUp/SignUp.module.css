@@ -1,0 +1,156 @@
+.SignUpWrapper {
+  background: url("../../Assets/SignUpPage/bggg\ 1.svg");
+
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+}
+
+.SignUpBoxWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  height: 85.3vh;
+  margin: auto;
+  margin-top: 7vmax;
+  background: #ffffff;
+  border: 8px solid #444444;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 59px rgba(0, 0, 0, 0.25);
+  border-bottom: none;
+  border-top-left-radius: 6vmax;
+  border-top-right-radius: 6vmax;
+}
+
+.SignUpBoxBorder {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.CryptomomLogo {
+  margin-top: -6vmax;
+  width: 23vmax;
+  height: 23vmax;
+}
+
+.LoginLogo {
+  margin-top: -8vmax;
+  width: 7vmax;
+  height: 10vmax;
+}
+
+.UserNameInputBox {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #3f3f3f;
+  margin-bottom: 2vmax;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  width: 38rem;
+  /* margin-left: -5vmax; */
+}
+
+.UserNameInputBox::placeholder {
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  padding-left: 1vmax;
+  color: #222222;
+}
+
+.AvatarButton {
+  cursor: pointer;
+  color: #444444;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  padding: 1vmax;
+  margin-top: -1vmax;
+  margin-bottom: 1vmax;
+}
+
+.AvatarButton > span {
+  display: block;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8.59259px;
+  line-height: 10px;
+  text-transform: uppercase;
+  margin-top: 0.4vmax;
+}
+.AvatarButton :hover {
+  cursor: pointer;
+  background: #e5e5e5;
+}
+.LoginButton {
+  margin-top: 1vmax;
+  padding: 0.5vmax 1vmax;
+  border: 1px solid #222222;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-family: Venti CF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+}
+
+.LoginButton:hover {
+  cursor: pointer;
+  background: #e5e5e5;
+}
+
+@media only screen and (max-width: 1000px) {
+.UserNameInputBox{
+  width: 30rem;
+}
+}
+
+@media only screen and (max-width: 900px) {
+.AvatarButton {
+  margin: 1rem 0;
+}
+}
+@media only screen and (max-width: 800px) {
+.UserNameInputBox{
+  width: 25rem;
+}
+}
+
+@media only screen and (max-width: 700px) {
+.AvatarButton {
+  margin: 2rem 0;
+}
+.UserNameInputBox{
+  width: 22rem;
+}
+}
+
+@media only screen and (max-width: 550px) {
+  .CryptomomLogo {
+  margin-top: -3rem;
+}
+.AvatarButton {
+  margin: 2rem 0;
+}
+.UserNameInputBox{
+  margin-top: 1rem;
+  width: 15rem;
+}
+}

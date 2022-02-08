@@ -15,6 +15,7 @@ html {
 :root {
   /* Font Sizes */
   --font-10: 1rem;
+  --font-11: 1.1rem;
   --font-12: 1.2rem;
   --font-13: 1.3rem;
   --font-135: 1.35rem;
@@ -24,6 +25,7 @@ html {
   --font-17: 1.7rem;
   --font-18: 1.8rem;
   --font-20: 2rem;
+  --font-21: 2.1rem;
   --font-22: 2.2rem;
   --font-24: 2.4rem;
   --font-26: 2.6rem;

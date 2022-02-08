@@ -37,3 +37,6 @@
   color: var(--main-hover-color);
   outline: 1px solid var(--main-hover-color);
 }
+.Reversed {
+  flex-direction: row-reverse;
+}
