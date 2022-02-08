@@ -11,6 +11,7 @@ import PreLoader from "./Components/PreLoader/PreLoader";
 import Training from "./Components/Training Popup/Training";
 import PlaceBid from "./Components/Popup/PlaceBid";
 import AddAuction from "./Components/Popup/AddAuction/AddAuction";
+import ConfirmPurchase from "./Components/Popup/ConfirmPurchase/ConfirmPurchase";
 
 const App = () => {
   return (
@@ -38,6 +39,9 @@ const App = () => {
       </Route>
       <Route exact path="/addauction">
           <AddAuction />
+      </Route>
+      <Route exact path="/confirm">
+          <ConfirmPurchase />
       </Route>
     </Switch>
   );
