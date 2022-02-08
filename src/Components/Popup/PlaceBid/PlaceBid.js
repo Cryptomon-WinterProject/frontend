@@ -21,7 +21,13 @@ function PlaceBid() {
         </div>
 
         <div className={styles.DescriptionWrapper}>
-          <div className={styles.Name}>Pichu</div>
+          <div className={styles.ProfileContainer}>
+            <div className={styles.Name}>Pichu</div>
+            <div className={styles.Profile}>
+              <img src={poke} alt="" className={styles.ProfilePic}></img>
+              <div className={styles.Owner}>Suar Varsani</div>
+            </div>
+          </div>
 
           <div className={styles.LevelWrapper}>
             <img src={StarLevel} alt="" className={styles.StarLevel} />
