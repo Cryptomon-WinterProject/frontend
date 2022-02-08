@@ -8,6 +8,7 @@ import AuctionPage from "./Containers/AuctionPage/index";
 import SignUp from "./Components/SignUp/SignUp";
 import PreLoader from "./Components/PreLoader/PreLoader";
 import Training from "./Components/Training Popup/Training";
+import PlaceBid from "./Components/Popup/PlaceBid";
 
 const App = () => {
   return (
@@ -29,6 +30,9 @@ const App = () => {
       </Route>
       <Route exact path="/training">
         <Training />
+      </Route>
+      <Route exact path="/bid">
+          <PlaceBid />
       </Route>
     </Switch>
   );
