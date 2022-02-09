@@ -1,0 +1,85 @@
+.MainWrapper {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  .PopupWrapper {
+    height: 21rem;
+    width: 38rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin: 0 auto;
+  }
+  .Topbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    height: 5rem;
+    border-bottom: 1px solid grey;
+  }
+  .Logo {
+    font-family: Venti CF;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #444444;
+  }
+  .yellow {
+    color: #ffcb05;
+    font-weight: bold;
+  }
+  .cross {
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+  }
+  .BodyWrapper {
+    padding: 1rem 2rem;
+  }
+  .Heading {
+    font-family: Venti CF;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #444444;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top:0.5rem;
+  }
+  .moncoin {
+    margin-left: 0.5rem;
+    width: 1.5rem;
+  }
+  .Button{
+      width: 6rem;
+      height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 0.7rem;
+      margin-left: 1rem;
+  }
+  .FinalButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    border: 1.5px solid #10ab02;
+    border-radius: 2rem;
+    width: 28rem;
+    font-family: Venti CF;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: #10ab02;
+    margin-top: 2.5rem;
+  }
