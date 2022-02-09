@@ -8,11 +8,11 @@ import BattlePage from "./Containers/BattlePage";
 import StorePage from "./Containers/StorePage/StorePage";
 import SignUp from "./Components/SignUp/SignUp";
 import PreLoader from "./Components/PreLoader/PreLoader";
-import Training from "./Components/Training Popup/Training";
-import PlaceBid from "./Components/Popup/PlaceBid";
-import AddAuction from "./Components/Popup/AddAuction/AddAuction";
-import ConfirmPurchase from "./Components/Popup/ConfirmPurchase/ConfirmPurchase";
-import AddBalance from "./Components/Popup/AddBalance/AddBalance";
+import Training from "./Components/PopupComponents/TrainingPopup";
+import PlaceBid from "./Components/PopupComponents/PlaceBid";
+// import AddAuction from "./Components/Popup/AddAuction/AddAuction";
+// import ConfirmPurchase from "./Components/Popup/ConfirmPurchase/ConfirmPurchase";
+// import AddBalance from "./Components/Popup/AddBalance/AddBalance";
 import PopUp from "./Components/PopUp";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -50,15 +50,15 @@ const App = () => {
         <Route exact path="/bid">
           <PlaceBid />
         </Route>
-        <Route exact path="/addauction">
+        {/* <Route exact path="/addauction">
           <AddAuction />
-        </Route>
-        <Route exact path="/confirm">
+        </Route> */}
+        {/* <Route exact path="/confirm">
           <ConfirmPurchase />
         </Route>
         <Route exact path="/balance">
           <AddBalance />
-        </Route>
+        </Route> */}
       </Switch>
       <PopUp
         ContentComp={componentToRender}

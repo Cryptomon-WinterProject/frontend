@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./SignUp.module.css";
 import CryptomomLogo from "../../Assets/General/Logo.svg";
 import LoginLogo from "../../Assets/SignUpPage/login.svg";
+import { uploadImage } from "../../Services/photoUpload.service";
 
 const SignUp = () => {
+  const addImageInputRef = useRef(null);
+  const [images, setImages] = useState([LoginLogo]);
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+
+    const [file] = addImageInputRef.current.avatarFileInput.files;
+    try {
+      if (file) {
+        alert("Image Uploading Succesfully", "success");
+        let urls = await uploadImage(file);
+        setImages(urls);
+        console.log(urls[0]);
+        alert("Profile picture updated successfully", "success");
+      }
+    } catch (err) {
+      console.log(err);
+      console.log(err.response);
+      alert(err, "error");
+    }
+  };
+
   return (
     <div className={styles.SignUpWrapper}>
       <div className={styles.SignUpBoxWrapper}>
@@ -13,7 +36,7 @@ const SignUp = () => {
             alt="Cryptomon"
             className={styles.CryptomomLogo}
           />
-          <img src={LoginLogo} alt="Cryptomon" className={styles.LoginLogo} />
+          <img src={images[0]} alt="Cryptomon" className={styles.LoginLogo} />
 
           <div className={styles.usernameInput}>
             <form>
@@ -27,11 +50,21 @@ const SignUp = () => {
             </form>
           </div>
 
-          <div className={styles.AvatarButtonBox}>
+          <form
+            className={styles.AvatarButtonBox}
+            onSubmit={handleClick}
+            ref={addImageInputRef}
+          >
+            <input
+              type="file"
+              name="fileInput"
+              id="avatarFileInput"
+              // style={{ display: "none" }}
+            />
             <button className={styles.AvatarButton}>
               Avatar<span>(Choose File)</span>
             </button>
-          </div>
+          </form>
 
           <div className={styles.LoginButtonBox}>
             <button className={styles.LoginButton}>Login</button>

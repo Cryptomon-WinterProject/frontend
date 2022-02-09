@@ -7,7 +7,7 @@
 
 html {
   /* font-family: "Manrope", sans-serif; */
-  font-family: "Now";
+  font-family: "Now" !important;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -80,5 +80,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 input {
-  font-family: "Manrope", sans-serif;
+  /* font-family: "Manrope", sans-serif; */
+  font-family: "Now";
 }

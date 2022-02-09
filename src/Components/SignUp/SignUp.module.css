@@ -1,7 +1,7 @@
 .SignUpWrapper {
   background: url("../../Assets/SignUpPage/bggg\ 1.svg");
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 70vh;
 }
 
@@ -38,8 +38,10 @@
 
 .LoginLogo {
   margin-top: -8vmax;
-  width: 7vmax;
+  width: 10vmax;
   height: 10vmax;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .UserNameInputBox {
@@ -47,31 +49,28 @@
   border: none;
   border-bottom: 1px solid #3f3f3f;
   margin-bottom: 2vmax;
-  font-family: Venti CF;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
   text-transform: uppercase;
   width: 38rem;
+  padding-left: 1vmax;
   /* margin-left: -5vmax; */
 }
 
 .UserNameInputBox::placeholder {
-  font-family: Venti CF;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
   text-transform: uppercase;
-  padding-left: 1vmax;
   color: #222222;
 }
 
 .AvatarButton {
   cursor: pointer;
   color: #444444;
-  font-family: Venti CF;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -84,7 +83,6 @@
 
 .AvatarButton > span {
   display: block;
-  font-family: Venti CF;
   font-style: normal;
   font-weight: 600;
   font-size: 8.59259px;
@@ -102,7 +100,6 @@
   border: 1px solid #222222;
   box-sizing: border-box;
   border-radius: 3px;
-  font-family: Venti CF;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -116,40 +113,40 @@
 }
 
 @media only screen and (max-width: 1000px) {
-.UserNameInputBox{
-  width: 30rem;
-}
+  .UserNameInputBox {
+    width: 30rem;
+  }
 }
 
 @media only screen and (max-width: 900px) {
-.AvatarButton {
-  margin: 1rem 0;
-}
+  .AvatarButton {
+    margin: 1rem 0;
+  }
 }
 @media only screen and (max-width: 800px) {
-.UserNameInputBox{
-  width: 25rem;
-}
+  .UserNameInputBox {
+    width: 25rem;
+  }
 }
 
 @media only screen and (max-width: 700px) {
-.AvatarButton {
-  margin: 2rem 0;
-}
-.UserNameInputBox{
-  width: 22rem;
-}
+  .AvatarButton {
+    margin: 2rem 0;
+  }
+  .UserNameInputBox {
+    width: 22rem;
+  }
 }
 
 @media only screen and (max-width: 550px) {
   .CryptomomLogo {
-  margin-top: -3rem;
-}
-.AvatarButton {
-  margin: 2rem 0;
-}
-.UserNameInputBox{
-  margin-top: 1rem;
-  width: 15rem;
-}
+    margin-top: -3rem;
+  }
+  .AvatarButton {
+    margin: 2rem 0;
+  }
+  .UserNameInputBox {
+    margin-top: 1rem;
+    width: 15rem;
+  }
 }

@@ -1,3 +1,4 @@
-const BASE_URL = 'http://localhost:3000/api/v1';
+const BASE_URL = "http://localhost:3000/api/v1";
 
-export const EXAMPLE_URL = `${BASE_URL}/examples`;
+export const UPLOAD_IMAGE_URL =
+  "https://mongodb-storage.herokuapp.com/addImages";
