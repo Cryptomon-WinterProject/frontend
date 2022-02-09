@@ -1,16 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Training.module.css";
 import cross from "../../../Assets/Training/cancel.svg";
 import poke from "../../../Assets/Training/pokemon_bg.svg";
 import moncoin from "../../../Assets/Training/M-moncoin.svg";
+import Slider from "@material-ui/core/Slider";
+import { createTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+import { styled } from "@material-ui/styles";
+
 
 function Training({
   name = "abcmon",
-  duration = 25,
-  rate = 15,
+  Duration = 25,
+  Rate = 15,
   rate1 = 20,
   amount = 45,
 }) {
+
+  const PrettoSlider = styled(Slider)({
+    color: "#52af77",
+    height: 8,
+    "& .MuiSlider-track": {
+      border: "none",
+    },
+    "& .MuiSlider-thumb": {
+      height: 24,
+      width: 24,
+      backgroundColor: "#fff",
+      border: "2px solid currentColor",
+      "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
+        boxShadow: "inherit",
+      },
+      "&:before": {
+        display: "none",
+      },
+    },
+    "& .MuiSlider-valueLabel": {
+      lineHeight: 1.2,
+      fontSize: 12,
+      background: "unset",
+      padding: 0,
+      width: 32,
+      height: 32,
+      borderRadius: "50% 50% 50% 0",
+      backgroundColor: "#52af77",
+      transformOrigin: "bottom left",
+      transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
+      "&:before": { display: "none" },
+      "&.MuiSlider-valueLabelOpen": {
+        transform: "translate(50%, -100%) rotate(-45deg) scale(1)",
+      },
+      "& > *": {
+        transform: "rotate(45deg)",
+      },
+    },
+  });
+
+
+  const muiTheme = createTheme({
+    overrides: {
+      MuiSlider: {
+        thumb: {
+          color: "yellow",
+        },
+        track: {
+          color: "red",
+        },
+        rail: {
+          color: "black",
+        },
+      },
+    },
+  });
+  const [duration, setduration] = useState(Duration);
+  const [rate, setrate] = useState(Rate);
+
+   const durationHandler = (event, newduration) => {
+     setduration(newduration);
+   };
+    const rateHandler = (event, newrate) => {
+      setrate(newrate);
+    };
   return (
     <div className={styles.PopupBg}>
       <div className={styles.MainWrapper}>
@@ -30,7 +100,19 @@ function Training({
             Duration:<span>{duration} minutes</span>
           </div>
 
-          <div className={styles.duration_slider}>Slider</div>
+          <div className={styles.duration_slider}>
+            <ThemeProvider muiTheme={muiTheme}>
+              <PrettoSlider
+                value={duration}
+                onChange={durationHandler}
+                valueLabelDisplay="auto"
+                aria-labelledby="range-slider"
+                min={0}
+                max={500}
+                color="secondary"
+              />
+            </ThemeProvider>
+          </div>
           <div className={styles.rate}>
             rate:
             <span>
@@ -38,7 +120,16 @@ function Training({
             </span>
           </div>
 
-          <div className={styles.rate_slider}>Slider</div>
+          <div className={styles.rate_slider}>
+            <Slider
+              value={rate}
+              onChange={rateHandler}
+              valueLabelDisplay="auto"
+              aria-labelledby="range-slider"
+              min={0}
+              max={500}
+            />
+          </div>
 
           <div className={styles.pay_button}>
             <button className={styles.paybtn}>
