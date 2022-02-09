@@ -1,0 +1,36 @@
+.Wrapper {
+  background-color: var(--white);
+  width: 50rem;
+  border-radius: 1.2rem;
+}
+.HeadingWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  border-bottom: 2px solid var(--sec-grey);
+  margin-bottom: 2.2rem;
+}
+.Heading {
+  font-weight: 600;
+  font-size: var(--font-20);
+  text-transform: uppercase;
+}
+.HeadingWrapper img {
+  cursor: pointer;
+}
+.YellowPrimary {
+  color: var(--yellow-primary);
+}
+.BlackPrimary {
+  color: var(--sec-black);
+}
+.OpponentDetailsWrapper {
+  padding-left: 2.5rem;
+}
+.OpponentDetailsHeading {
+  font-weight: 600;
+  font-size: var(--font-16);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}

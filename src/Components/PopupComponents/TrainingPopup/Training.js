@@ -1,10 +1,16 @@
 import React from "react";
 import styles from "./Training.module.css";
-import cross from "../../Assets/Training/cancel.svg";
-import poke from "../../Assets/Training/pokemon_bg.svg";
-import moncoin from "../../Assets/Training/M-moncoin.svg";
+import cross from "../../../Assets/Training/cancel.svg";
+import poke from "../../../Assets/Training/pokemon_bg.svg";
+import moncoin from "../../../Assets/Training/M-moncoin.svg";
 
-function Training({name = "abcmon", duration = 25, rate = 15, rate1 = 20, amount = 45 }) {
+function Training({
+  name = "abcmon",
+  duration = 25,
+  rate = 15,
+  rate1 = 20,
+  amount = 45,
+}) {
   return (
     <div className={styles.PopupBg}>
       <div className={styles.MainWrapper}>

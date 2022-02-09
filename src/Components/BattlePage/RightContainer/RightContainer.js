@@ -2,28 +2,33 @@ import React from "react";
 
 import styles from "./RightContainer.module.css";
 import data from "../staticData";
+import { useDispatch } from "react-redux";
+import ChallengePlayer from "../../PopupComponents/ChallengePlayer";
+import PokemonCards from "./PokemonCards";
 
 function RightContainer() {
+  const dispatch = useDispatch();
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "HANDLE_POPUP_OPEN",
+      popupOpen: true,
+    });
+    dispatch({
+      type: "HANDLE_POPUP_COMPONENT_RENDER",
+      popupComponent: <ChallengePlayer />,
+    });
+  };
+
   const pokeMonList = data.cryptomonCards.map((cryptomon, index) => {
     return (
-      <div className={styles.CryptomonCardWrapper} key={index}>
-        <img
-          src={cryptomon.monProfile}
-          alt="Pokemon"
-          className={styles.MonProfile}
-        />
-        <div className={styles.LowerContainerWrapper}>
-          <div className={styles.MonLevelXPWrapper}>
-            <img
-              src={cryptomon.starLevelProfile}
-              alt="star-level"
-              className={styles.StarLevel}
-            />
-            <p className={styles.MonLevel}>{cryptomon.monXP}</p>
-          </div>
-          <p className={styles.MonName}>{cryptomon.monName}</p>
-        </div>
-      </div>
+      <PokemonCards
+        key={index}
+        monProfile={cryptomon.monProfile}
+        starLevelProfile={cryptomon.starLevelProfile}
+        monXP={cryptomon.monXP}
+        monName={cryptomon.monName}
+      />
     );
   });
 
@@ -47,7 +52,7 @@ function RightContainer() {
         </div>
         <div className={styles.LowerContainerWrapper2}>
           <p className={styles.chalName}>{challenge.chalName}</p>
-          <button>Challenge</button>
+          <button onClick={handleClick}>Challenge</button>
         </div>
       </div>
     );
