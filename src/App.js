@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Web3 from "web3";
 
 import { Switch, Route } from "react-router-dom";
+import { abi, address } from "./config";
 
 import LandingPage from "./Containers/LandingPage";
 import AuctionPage from "./Containers/AuctionPage";
@@ -13,7 +15,7 @@ import PlaceBid from "./Components/PopupComponents/PlaceBid";
 // import AddAuction from "./Components/Popup/AddAuction/AddAuction";
 // import ConfirmPurchase from "./Components/Popup/ConfirmPurchase/ConfirmPurchase";
 // import AddBalance from "./Components/Popup/AddBalance/AddBalance";
-import PopUp from "./Components/PopUp";
+import PopUp from "./Components/Popup";
 import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
@@ -22,6 +24,23 @@ const App = () => {
   );
   const popUpState = useSelector((state) => state.popupHandle.popupOpen);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function load() {
+      let appdataLocale = {};
+
+      const web3 = new Web3(Web3.givenProvider);
+      appdataLocale.account = (await web3.eth.requestAccounts())[0];
+      appdataLocale.contract = new web3.eth.Contract(abi, address);
+
+      dispatch({
+        type: "SET_CONTRACT_DETAILS",
+        data: appdataLocale,
+      });
+    }
+
+    load();
+  }, []);
 
   return (
     <>
