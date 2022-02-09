@@ -154,3 +154,8 @@
 .moncoin {
   padding-left: 1rem;
 }
+
+.duration_slider,.rate_slider{
+  margin: 1rem 0rem;
+}
+
