@@ -7,43 +7,47 @@ import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import MonCoinIcon from "../../../Assets/LandingPage/M-moncoin.svg";
 import Button from "../../Button";
 import { ReactComponent as PlusIcon } from "../../../Assets/General/Plus.svg";
+import { useSelector } from "react-redux";
+import { calculatePlayerXP } from "../../../Utils/helper/calcPlayerXP";
 
-function UpperSection({
-  playerXP = 200,
-  totalXP = 300,
-  monCoins = 100,
-  level = 26,
-}) {
+function UpperSection() {
+  const userData = useSelector((state) => state.userReducer.userDetails);
+  const playerXP = calculatePlayerXP(userData.winCount, userData.level);
+
   return (
     <div className={styles.UpperSectionWrapper}>
       <img src={Logo} alt="Logo" className={styles.CryptomonLogo} />
       <p className={styles.ProfileHeading}>Your Profile</p>
       <div className={styles.ProfileWrapper}>
-        <img src={ProfilePic} alt="Profile" className={styles.ProfilePic} />
+        <img
+          src={userData.profilePictureURL}
+          alt="Profile"
+          className={styles.ProfilePic}
+        />
         <div className={styles.ProfileInfo}>
-          <p className={styles.ProfileName}>John Doe</p>
+          <p className={styles.ProfileName}>{userData.name}</p>
           <div className={styles.ProfileLevelContainer}>
             <div className={styles.ProfileLevelWrapper}>
-              <p className={styles.ProfileLevel}>{level}</p>
+              <p className={styles.ProfileLevel}>{userData.level}</p>
               <img src={StarLevel} alt="Star Level" />
             </div>
             <div style={{ width: "100%" }}>
               <div className={styles.ProgressBarBorder}>
                 <div
                   className={styles.ProgressBarFill}
-                  style={{ width: `${(playerXP / totalXP) * 100}%` }}
+                  style={{ width: `${playerXP}%` }}
                 ></div>
               </div>
-              <p className={styles.ProfileXP}>
-                {playerXP}/{totalXP} XP
-              </p>
+              <p className={styles.ProfileXP}>{playerXP}/100 XP</p>
             </div>
           </div>
           <div className={styles.MonCoinBalanceContainer}>
             <div className={styles.MonCoinBalanceWrapper}>
               <p className={styles.MonCoinBalanceHeading}>Balance</p>
               <div className={styles.MonCoinBalance}>
-                <p className={styles.MonCoinBalanceNumber}>{monCoins}</p>
+                <p className={styles.MonCoinBalanceNumber}>
+                  {userData.monCoinBalance}
+                </p>
                 <img
                   src={MonCoinIcon}
                   alt="Logo"

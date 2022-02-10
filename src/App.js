@@ -17,12 +17,15 @@ import PlaceBid from "./Components/PopupComponents/PlaceBid";
 // import AddBalance from "./Components/Popup/AddBalance/AddBalance";
 // import PopUp from "./Components/Popup";
 import { useDispatch, useSelector } from "react-redux";
+import { getUserCards, getUserData } from "./Services/user.service";
 
 const App = () => {
   const componentToRender = useSelector(
     (state) => state.popupHandle.popupComponent
   );
   const popUpState = useSelector((state) => state.popupHandle.popupOpen);
+  const contract = useSelector((state) => state.contractReducer.contract);
+  const account = useSelector((state) => state.contractReducer.account);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,6 +44,26 @@ const App = () => {
 
     load();
   }, []);
+
+  useEffect(() => {
+    async function setUserData() {
+      const userDetails = await getUserData(contract, account);
+      const monCards = await getUserCards(contract, account);
+
+      dispatch({
+        type: "SET_USER_DETAILS",
+        data: userDetails,
+      });
+
+      dispatch({
+        type: "SET_MON_CARDS",
+        data: monCards,
+      });
+    }
+    if (account) {
+      setUserData();
+    }
+  }, [account]);
 
   return (
     <>

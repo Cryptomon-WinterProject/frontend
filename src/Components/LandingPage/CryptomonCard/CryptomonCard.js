@@ -4,33 +4,41 @@ import styles from "./CryptomonCard.module.css";
 
 import PokemonImage from "../../../Assets/LandingPage/Pokemon.png";
 import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
+import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime";
 
-function CryptomonCard({ monXP = 200, totalXP = 300, readyTime = 25 }) {
+function CryptomonCard({ cardData, totalXP = 300 }) {
+  const timeLeft = calculateReadyTime(cardData.readyTime);
   return (
     <div className={styles.CryptomonCardWrapper}>
-      <img src={PokemonImage} alt="Pokemon" className={styles.MonProfile} />
-      <p className={styles.MonName}>Pichu</p>
+      <img
+        src={cardData.monImageUrl}
+        alt="Pokemon"
+        className={styles.MonProfile}
+      />
+      <p className={styles.MonName}>{cardData.monName}</p>
       <div className={styles.ProgressBarWrapper}>
         <div style={{ width: "100%" }}>
           <div className={styles.ProgressBarBorder}>
             <div
               className={styles.ProgressBarFill}
-              style={{ width: `${(monXP / totalXP) * 100}%` }}
+              style={{
+                width: `${(cardData.XP / (80 + cardData.XP * 20)) * 100}%`,
+              }}
             ></div>
           </div>
           <p className={styles.MonXP}>
-            {monXP}/{totalXP} XP
+            {cardData.XP}/{80 + cardData.XP * 20} XP
           </p>
         </div>
         <div className={styles.MonLevelWrapper}>
-          <p className={styles.MonLevel}>15</p>
+          <p className={styles.MonLevel}>{cardData.monLevel}</p>
           <img src={StarLevel} alt="Star Level" />
         </div>
       </div>
       <div
         className={styles.MonAvailibility}
         style={
-          readyTime
+          timeLeft > 0
             ? { borderColor: "var(--red-primary)", color: "var(--red-primary)" }
             : {
                 cursor: "pointer",
@@ -39,7 +47,7 @@ function CryptomonCard({ monXP = 200, totalXP = 300, readyTime = 25 }) {
               }
         }
       >
-        {readyTime ? `Ready in ${readyTime} min` : "Ready for battle"}
+        {timeLeft > 0 ? `Ready in ${timeLeft} min` : "Ready for battle"}
       </div>
     </div>
   );
