@@ -8,50 +8,52 @@ import StoreIcon from "../../Assets/Navbar/StoreIcon.svg";
 import ActiveHomeIcon from "../../Assets/Navbar/ActiveHomeIcon.svg";
 import ActiveBattleIcon from "../../Assets/Navbar/ActiveBattleIcon.svg";
 import ActiveStoreIcon from "../../Assets/Navbar/ActiveStoreIcon.svg";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 function Navbar() {
-  const [activeCategory, setActiveCategory] = React.useState("Home");
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const navbarState = useSelector((state) => state.navbarReducer.navbarState);
 
   const handleClick = (category) => {
-    setActiveCategory(category);
+    dispatch({
+      type: "SET_NAVBAR_STATE",
+      state: category,
+    });
+    history.push(`/${category}`);
   };
 
   return (
     <div className={styles.NavbarWrapper}>
       <div
         className={styles.Category}
-        style={
-          activeCategory === "Home" ? { background: "var(--white)" } : null
-        }
-        onClick={() => handleClick("Home")}
+        style={navbarState === "home" ? { background: "var(--white)" } : null}
+        onClick={() => handleClick("home")}
       >
         <img
-          src={activeCategory === "Home" ? ActiveHomeIcon : HomeIcon}
-          alt="Home"
+          src={navbarState === "home" ? ActiveHomeIcon : HomeIcon}
+          alt="home"
         />
       </div>
       <div
         className={styles.Category}
-        style={
-          activeCategory === "Battle" ? { background: "var(--white)" } : null
-        }
-        onClick={() => handleClick("Battle")}
+        style={navbarState === "battle" ? { background: "var(--white)" } : null}
+        onClick={() => handleClick("battle")}
       >
         <img
-          src={activeCategory === "Battle" ? ActiveBattleIcon : BattleIcon}
-          alt="Battle"
+          src={navbarState === "battle" ? ActiveBattleIcon : BattleIcon}
+          alt="battle"
         />
       </div>
       <div
         className={styles.Category}
-        style={
-          activeCategory === "Store" ? { background: "var(--white)" } : null
-        }
-        onClick={() => handleClick("Store")}
+        style={navbarState === "store" ? { background: "var(--white)" } : null}
+        onClick={() => handleClick("store")}
       >
         <img
-          src={activeCategory === "Store" ? ActiveStoreIcon : StoreIcon}
-          alt="Store"
+          src={navbarState === "store" ? ActiveStoreIcon : StoreIcon}
+          alt="store"
         />
       </div>
     </div>

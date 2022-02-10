@@ -68,7 +68,7 @@ const App = () => {
   return (
     <>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/home">
           <LandingPage />
         </Route>
         <Route exact path="/battle">
