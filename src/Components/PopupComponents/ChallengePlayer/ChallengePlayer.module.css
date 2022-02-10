@@ -27,10 +27,120 @@
 }
 .OpponentDetailsWrapper {
   padding-left: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--sec-grey);
+}
+.OpponentCardDetails {
+  display: flex;
+  padding-left: 1rem;
+  overflow-x: scroll;
+}
+.OpponentCardDetails::-webkit-scrollbar {
+  display: none;
+}
+.OpponentCardDetailsLeft {
+  width: 33%;
 }
 .OpponentDetailsHeading {
   font-weight: 600;
   font-size: var(--font-16);
   text-transform: uppercase;
   margin-bottom: 1.4rem;
+}
+.UpperWrapper {
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+}
+.MonLevelXPWrapper2 {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  right: -8%;
+  top: 60%;
+}
+.StarLevel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.MonLevel {
+  z-index: 4;
+  color: var(--white);
+  font-weight: 500;
+}
+.ParaName {
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--font-16);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--sec-black);
+  width: 100%;
+  margin-top: 1.5rem;
+}
+.OpponentCardDetailsRight {
+  margin-left: 2.4rem;
+}
+.OpponentCryptomonList {
+  display: flex;
+  gap: 0.6rem;
+}
+.LowerWrapperWrapper {
+  padding-top: 1.5rem;
+  padding-left: 2.5rem;
+  overflow-x: scroll;
+}
+.LowerWrapperWrapper::-webkit-scrollbar {
+  display: none;
+}
+.OpponentCryptomonList2 {
+  display: flex;
+  gap: 1rem;
+  width: fit-content;
+}
+.LowerWrapperWrapperButton {
+  padding: 1rem 2rem;
+  padding-top: 1.1rem;
+  background: #fbfffa;
+  border: 1px solid #0fb900;
+  box-sizing: border-box;
+  border-radius: 65px;
+  font-weight: 500;
+  font-size: var(--font-14);
+  text-transform: uppercase;
+  color: #0fb900;
+  margin-top: 2rem;
+  margin-bottom: 2.7rem;
+  font-family: "Now";
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.LowerWrapperWrapperButton:hover {
+  background: #0fb900;
+  color: #fbfffa;
+}
+.MyCryptomonListWrapper {
+  position: relative;
+}
+.MyCryptomonListSubWrapper {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 34, 34, 0.8);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: var(--font-30);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
 }
