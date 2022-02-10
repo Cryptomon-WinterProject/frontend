@@ -23,6 +23,8 @@
 }
 .ProfilePic {
   height: 13rem;
+  width: 13rem;
+  border-radius: 0.8rem;
 }
 .ProfileInfo {
   margin-left: 1.5rem;

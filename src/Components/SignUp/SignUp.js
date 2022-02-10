@@ -3,10 +3,22 @@ import styles from "./SignUp.module.css";
 import CryptomomLogo from "../../Assets/General/Logo.svg";
 import LoginLogo from "../../Assets/SignUpPage/login.svg";
 import { uploadImage } from "../../Services/photoUpload.service";
+import { logInUser } from "../../Services/auth.service";
+import { useSelector } from "react-redux";
 
 const SignUp = () => {
   const addImageInputRef = useRef(null);
+  const formRef = useRef(123);
   const [images, setImages] = useState([LoginLogo]);
+  const account = useSelector((state) => state.contractReducer.account);
+  const contract = useSelector((state) => state.contractReducer.contract);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const name = formRef.current.elements.username.value;
+    const imageUrl = images[0];
+    // await logInUser(name, imageUrl, contract, account);
+  };
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -39,7 +51,7 @@ const SignUp = () => {
           <img src={images[0]} alt="Cryptomon" className={styles.LoginLogo} />
 
           <div className={styles.usernameInput}>
-            <form>
+            <form ref={formRef}>
               <input
                 className={styles.UserNameInputBox}
                 type="text"
@@ -67,7 +79,12 @@ const SignUp = () => {
           </form>
 
           <div className={styles.LoginButtonBox}>
-            <button className={styles.LoginButton}>Login</button>
+            <button
+              className={styles.LoginButton}
+              onClick={(e) => handleLogin(e)}
+            >
+              Login
+            </button>
           </div>
         </div>
       </div>
