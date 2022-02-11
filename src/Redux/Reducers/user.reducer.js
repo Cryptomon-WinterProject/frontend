@@ -1,9 +1,14 @@
-import { SET_USER_DETAILS, SET_MON_CARDS } from "../ActionTypes";
+import {
+  SET_USER_DETAILS,
+  SET_MON_CARDS,
+  SET_STORE_CARDS,
+} from "../ActionTypes";
 
 export const userReducer = (
   state = {
     userDetails: {},
     monCards: [],
+    storeCards: [],
   },
   action
 ) => {
@@ -18,6 +23,12 @@ export const userReducer = (
       return {
         ...state,
         monCards: action.data,
+      };
+    }
+    case SET_STORE_CARDS: {
+      return {
+        ...state,
+        storeCards: action.data,
       };
     }
     default:

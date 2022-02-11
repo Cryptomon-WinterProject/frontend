@@ -1,4 +1,4 @@
-const getMonCollection = async (contract, index) => {
+export const getMonCollection = async (contract, index) => {
   try {
     const monCollection = await contract.methods.getMonCollection(index).call();
     return monCollection;

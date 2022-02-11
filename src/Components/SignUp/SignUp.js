@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./SignUp.module.css";
 import CryptomomLogo from "../../Assets/General/Logo.svg";
 import LoginLogo from "../../Assets/SignUpPage/login.svg";
@@ -14,6 +14,13 @@ const SignUp = () => {
   const [images, setImages] = useState([LoginLogo]);
   const account = useSelector((state) => state.contractReducer.account);
   const contract = useSelector((state) => state.contractReducer.contract);
+  const userDetails = useSelector((state) => state.userReducer.userDetails);
+
+  useEffect(() => {
+    if (userDetails.name) {
+      history.push("/home");
+    }
+  }, [userDetails]);
 
   const handleLogin = async (e) => {
     e.preventDefault();

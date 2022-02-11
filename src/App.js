@@ -19,7 +19,7 @@ import PlaceBid from "./Components/PopupComponents/PlaceBid";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserCards, getUserData } from "./Services/user.service";
 import { useLocation } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { getStoreCards } from "./Services/store.service";
 
 const App = () => {
   const componentToRender = useSelector(
@@ -29,7 +29,6 @@ const App = () => {
   const contract = useSelector((state) => state.contractReducer.contract);
   const account = useSelector((state) => state.contractReducer.account);
   const location = useLocation();
-  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -61,20 +60,23 @@ const App = () => {
   useEffect(() => {
     async function setUserData() {
       const userDetails = await getUserData(contract, account);
-      if (userDetails.name) {
-        history.push("/home");
-        const monCards = await getUserCards(contract, account);
+      const monCards = await getUserCards(contract, account);
+      const storeCards = await getStoreCards(contract, account);
 
-        dispatch({
-          type: "SET_USER_DETAILS",
-          data: userDetails,
-        });
+      dispatch({
+        type: "SET_USER_DETAILS",
+        data: userDetails,
+      });
 
-        dispatch({
-          type: "SET_MON_CARDS",
-          data: monCards,
-        });
-      }
+      dispatch({
+        type: "SET_MON_CARDS",
+        data: monCards,
+      });
+
+      dispatch({
+        type: "SET_STORE_CARDS",
+        data: storeCards,
+      });
     }
     if (account) {
       setUserData();

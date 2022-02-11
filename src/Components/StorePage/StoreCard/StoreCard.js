@@ -5,11 +5,11 @@ import PokemonImage from "../../../Assets/LandingPage/Pokemon.png";
 import MonCoinIcon from "../../../Assets/LandingPage/M-moncoin.svg";
 import Button from "../../Button";
 
-function StoreCard({ monPrice = 30 }) {
+function StoreCard({ cardData }) {
   function MonCoinComponent() {
     return (
       <div className={styles.MonPrice}>
-        <p>{monPrice}</p>
+        <p>{cardData.price}</p>
         <img
           src={MonCoinIcon}
           alt="monCoinIcon"
@@ -21,9 +21,9 @@ function StoreCard({ monPrice = 30 }) {
 
   return (
     <div className={styles.StoreCardWrapper}>
-      <img src={PokemonImage} alt="Pokemon" className={styles.PokemonImage} />
+      <img src={cardData.image} alt="Pokemon" className={styles.PokemonImage} />
       <div className={styles.StoreCardContent}>
-        <p className={styles.StoreCardName}>Pichu</p>
+        <p className={styles.StoreCardName}>{cardData.name}</p>
         <Button
           name="Purchase for "
           primaryColor="var(--ter-black)"
