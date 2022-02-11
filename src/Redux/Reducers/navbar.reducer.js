@@ -1,9 +1,8 @@
-import { SET_NAVBAR_STATE, SET_SWITCH_STATE } from "../ActionTypes";
+import { SET_NAVBAR_STATE } from "../ActionTypes";
 
 export const navbarReducer = (
   state = {
     navbarState: "home",
-    switchState: "store",
   },
   action
 ) => {
@@ -12,12 +11,6 @@ export const navbarReducer = (
       return {
         ...state,
         navbarState: action.state,
-      };
-    }
-    case SET_SWITCH_STATE: {
-      return {
-        ...state,
-        switchState: action.state,
       };
     }
     default:

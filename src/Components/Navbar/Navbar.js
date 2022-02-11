@@ -9,18 +9,13 @@ import ActiveHomeIcon from "../../Assets/Navbar/ActiveHomeIcon.svg";
 import ActiveBattleIcon from "../../Assets/Navbar/ActiveBattleIcon.svg";
 import ActiveStoreIcon from "../../Assets/Navbar/ActiveStoreIcon.svg";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const history = useHistory();
-  const dispatch = useDispatch();
   const navbarState = useSelector((state) => state.navbarReducer.navbarState);
 
   const handleClick = (category) => {
-    dispatch({
-      type: "SET_NAVBAR_STATE",
-      state: category,
-    });
     history.push(`/${category}`);
   };
 
@@ -48,11 +43,19 @@ function Navbar() {
       </div>
       <div
         className={styles.Category}
-        style={navbarState === "store" ? { background: "var(--white)" } : null}
+        style={
+          navbarState === "store" || navbarState === "auction"
+            ? { background: "var(--white)" }
+            : null
+        }
         onClick={() => handleClick("store")}
       >
         <img
-          src={navbarState === "store" ? ActiveStoreIcon : StoreIcon}
+          src={
+            navbarState === "store" || navbarState === "auction"
+              ? ActiveStoreIcon
+              : StoreIcon
+          }
           alt="store"
         />
       </div>

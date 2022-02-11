@@ -18,6 +18,7 @@ import PlaceBid from "./Components/PopupComponents/PlaceBid";
 // import PopUp from "./Components/Popup";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserCards, getUserData } from "./Services/user.service";
+import { useLocation } from "react-router-dom";
 
 const App = () => {
   const componentToRender = useSelector(
@@ -26,6 +27,7 @@ const App = () => {
   const popUpState = useSelector((state) => state.popupHandle.popupOpen);
   const contract = useSelector((state) => state.contractReducer.contract);
   const account = useSelector((state) => state.contractReducer.account);
+  const location = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,6 +46,15 @@ const App = () => {
 
     load();
   }, []);
+
+  useEffect(() => {
+    var curState =
+      location.pathname.split("/")[location.pathname.split("/").length - 1];
+    dispatch({
+      type: "SET_NAVBAR_STATE",
+      state: curState,
+    });
+  }, [location]);
 
   useEffect(() => {
     async function setUserData() {
