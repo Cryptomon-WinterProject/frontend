@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./PokemonCards.module.css";
 
-function PokemonCards({ monProfile, starLevelProfile, monXP, monName }) {
+function PokemonCards({ monProfile, starLevelProfile, monLevel, monName }) {
   return (
     <div className={styles.CryptomonCardWrapper}>
       <img src={monProfile} alt="Pokemon" className={styles.MonProfile} />
@@ -12,7 +12,7 @@ function PokemonCards({ monProfile, starLevelProfile, monXP, monName }) {
             alt="star-level"
             className={styles.StarLevel}
           />
-          <p className={styles.MonLevel}>{monXP}</p>
+          <p className={styles.MonLevel}>{monLevel}</p>
         </div>
         <p className={styles.MonName}>{monName}</p>
       </div>

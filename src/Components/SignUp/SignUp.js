@@ -5,8 +5,10 @@ import LoginLogo from "../../Assets/SignUpPage/login.svg";
 import { uploadImage } from "../../Services/photoUpload.service";
 import { logInUser } from "../../Services/auth.service";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const SignUp = () => {
+  const history = useHistory();
   const addImageInputRef = useRef(null);
   const formRef = useRef(123);
   const [images, setImages] = useState([LoginLogo]);
@@ -17,7 +19,8 @@ const SignUp = () => {
     e.preventDefault();
     const name = formRef.current.elements.username.value;
     const imageUrl = images[0];
-    // await logInUser(name, imageUrl, contract, account);
+    await logInUser(name, imageUrl, contract, account);
+    history.push("/home");
   };
 
   const handleClick = async (e) => {

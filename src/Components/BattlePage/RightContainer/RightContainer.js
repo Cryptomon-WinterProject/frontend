@@ -1,13 +1,16 @@
 import React from "react";
 
 import styles from "./RightContainer.module.css";
+import starLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import data from "../staticData";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ChallengePlayer from "../../PopupComponents/ChallengePlayer";
 import PokemonCards from "./PokemonCards";
 
 function RightContainer() {
   const dispatch = useDispatch();
+  const monCards = useSelector((state) => state.userReducer.monCards);
+
   const handleClick = (e) => {
     e.preventDefault();
     dispatch({
@@ -20,13 +23,13 @@ function RightContainer() {
     });
   };
 
-  const pokeMonList = data.cryptomonCards.map((cryptomon, index) => {
+  const pokeMonList = monCards.map((cryptomon, index) => {
     return (
       <PokemonCards
         key={index}
-        monProfile={cryptomon.monProfile}
-        starLevelProfile={cryptomon.starLevelProfile}
-        monXP={cryptomon.monXP}
+        monProfile={cryptomon.monImageUrl}
+        starLevelProfile={starLevel}
+        monLevel={cryptomon.monLevel}
         monName={cryptomon.monName}
       />
     );
