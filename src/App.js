@@ -38,6 +38,17 @@ const App = () => {
       const web3 = new Web3(Web3.givenProvider);
       appdataLocale.account = (await web3.eth.requestAccounts())[0];
       appdataLocale.contract = new web3.eth.Contract(abi, address);
+      // if (
+      //   appdataLocale.account == "0xC48E03A9e023b0b12173dAeE8E61e058062BC327"
+      // ) {
+      //   let receipt = await appdataLocale.contract.methods
+      //     .updateUserConnectivityStatus(
+      //       "0xBa6F2EeF6A9341Ede99F69b6B3adA5c4F234DE9f",
+      //       true
+      //     )
+      //     .send({ from: appdataLocale.account });
+      //   console.log(receipt);
+      // }
 
       dispatch({
         type: "SET_CONTRACT_DETAILS",

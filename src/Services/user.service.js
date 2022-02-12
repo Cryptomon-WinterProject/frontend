@@ -22,8 +22,8 @@ export const getUserCards = async (contract, account) => {
         localObj[keys[j]] = monCards[i][keys[j]];
       }
       const monCollection = await getMonCollection(contract, localObj.monIndex);
-      localObj.monImageUrl = monCollection.images[localObj.evolution];
-      localObj.monName = monCollection.names[localObj.evolution];
+      localObj.monImageUrl = monCollection.images[localObj.evolution - 1];
+      localObj.monName = monCollection.names[localObj.evolution - 1];
       dataToReturn.push(localObj);
     }
 
