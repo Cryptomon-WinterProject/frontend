@@ -6,7 +6,7 @@ import Button from "../../Button";
 import SwitchButton from "../../SwitchButton";
 import { useDispatch } from "react-redux";
 import PlaceBid from "../../PopupComponents/PlaceBid";
-import AddAuction from "../../Popup/AddAuction/AddAuction";
+import AddAuction from "./../../PopUp/AddAuction/index";
 
 function UpperSection() {
   const dispatch = useDispatch();

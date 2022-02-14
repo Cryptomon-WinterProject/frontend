@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./SignUp.module.css";
 import CryptomomLogo from "../../Assets/General/Logo.svg";
-import LoginLogo from "../../Assets/SignUpPage/login.svg";
+import LoginLogo from "../../Assets/SignUpPage/defaultProfilePicture.png";
 import { uploadImage } from "../../Services/photoUpload.service";
 import { logInUser } from "../../Services/auth.service";
 import { useSelector } from "react-redux";
@@ -31,15 +31,12 @@ const SignUp = () => {
   };
 
   const handleClick = async (e) => {
-    e.preventDefault();
-
     const [file] = addImageInputRef.current.avatarFileInput.files;
     try {
       if (file) {
         alert("Image Uploading Succesfully", "success");
         let urls = await uploadImage(file);
         setImages(urls);
-        console.log(urls[0]);
         alert("Profile picture updated successfully", "success");
       }
     } catch (err) {
@@ -74,14 +71,18 @@ const SignUp = () => {
 
           <form
             className={styles.AvatarButtonBox}
-            onSubmit={handleClick}
+            onSubmit={(e) => {
+              e.preventDefault();
+              document.getElementById("avatarFileInput").click();
+            }}
             ref={addImageInputRef}
           >
             <input
               type="file"
               name="fileInput"
               id="avatarFileInput"
-              // style={{ display: "none" }}
+              style={{ display: "none" }}
+              onChange={handleClick}
             />
             <button className={styles.AvatarButton}>
               Avatar<span>(Choose File)</span>
