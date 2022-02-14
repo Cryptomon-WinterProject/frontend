@@ -7,26 +7,38 @@ export const getMonCollection = async (contract, index) => {
   }
 };
 
-export const getUserCards = async (contract, account) => {
+export const getUserCardIds = async (contract, account) => {
   try {
-    const monCards = await contract.methods
+    const monCardIds = await contract.methods
       .getUserCards()
       .call({ from: account });
+    return monCardIds;
+  } catch (err) {
+    throw err;
+  }
+};
 
+export const getUserCards = async (contract, account) => {
+  try {
+    const monCardIds = await getUserCardIds(contract, account);
     const dataToReturn = [];
 
-    for (let i = 0; i < monCards.length; i++) {
+    for (let i = 0; i < monCardIds.length; i++) {
       let localObj = {};
-      let keys = Object.keys(monCards[i]);
+      const monCard = await contract.methods
+        .getCryptomonCard(monCardIds[i])
+        .call();
+      let keys = Object.keys(monCard);
       for (let j = 6; j < keys.length; j++) {
-        localObj[keys[j]] = monCards[i][keys[j]];
+        localObj[keys[j]] = monCard[keys[j]];
       }
       const monCollection = await getMonCollection(contract, localObj.monIndex);
       localObj.monImageUrl = monCollection.images[localObj.evolution - 1];
       localObj.monName = monCollection.names[localObj.evolution - 1];
+      localObj.monId = monCardIds[i];
+      localObj.trainingGainPerHour = monCollection.trainingGainPerHour;
       dataToReturn.push(localObj);
     }
-
     return dataToReturn;
   } catch (err) {
     throw err;

@@ -6,13 +6,14 @@
   width: 100%;
 }
 .MainWrapper {
-  background-color: white;
+  background: white;
   overflow: hidden;
   height: 60rem;
   width: 47rem;
   margin: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   border-radius: 2rem;
 }
@@ -46,7 +47,8 @@
   cursor: pointer;
 }
 .PokeImg {
-  width: 100%;
+  width: 35rem;
+  height: 35rem;
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
 }
@@ -155,7 +157,7 @@
   padding-left: 1rem;
 }
 
-.duration_slider,.rate_slider{
+.duration_slider,
+.rate_slider {
   margin: 1rem 0rem;
 }
-

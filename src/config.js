@@ -1,7 +1,8 @@
-export const address = "0xD74C1F7bda085aDC6A56BC09C32561e7B7204D87";
+export const address = "0xCDbd74075Fe5a806A2aABD5d2f49bB23b2ebCF43";
 
 export const abi = [
   {
+    anonymous: false,
     inputs: [
       {
         indexed: false,
@@ -42,9 +43,9 @@ export const abi = [
       },
       {
         indexed: false,
-        internalType: "uint256[]",
+        internalType: "uint16",
         name: "_xpGained",
-        type: "uint256[]",
+        type: "uint16",
       },
     ],
     name: "AnnounceRoundWinner",
@@ -61,9 +62,15 @@ export const abi = [
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "_winnerMon",
-        type: "uint256",
+        internalType: "address",
+        name: "_winner",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint16",
+        name: "increasedMoncoins",
+        type: "uint16",
       },
     ],
     name: "AnnounceWinner",
@@ -287,14 +294,6 @@ export const abi = [
     constant: true,
   },
   {
-    inputs: [],
-    name: "buyMonCoins",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-    payable: true,
-  },
-  {
     inputs: [
       {
         internalType: "address",
@@ -360,6 +359,31 @@ export const abi = [
   {
     inputs: [
       {
+        internalType: "string[]",
+        name: "array",
+        type: "string[]",
+      },
+      {
+        internalType: "string",
+        name: "value",
+        type: "string",
+      },
+    ],
+    name: "containsStringInArray",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "pure",
+    type: "function",
+    constant: true,
+  },
+  {
+    inputs: [
+      {
         internalType: "uint256",
         name: "_monIndex",
         type: "uint256",
@@ -406,19 +430,6 @@ export const abi = [
         type: "uint256",
       },
     ],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_name",
-        type: "string",
-      },
-    ],
-    name: "createTestReadyUser",
-    outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -797,41 +808,9 @@ export const abi = [
     name: "getUserCards",
     outputs: [
       {
-        components: [
-          {
-            internalType: "uint256",
-            name: "monIndex",
-            type: "uint256",
-          },
-          {
-            internalType: "uint8",
-            name: "monLevel",
-            type: "uint8",
-          },
-          {
-            internalType: "uint8",
-            name: "evolution",
-            type: "uint8",
-          },
-          {
-            internalType: "uint16",
-            name: "XP",
-            type: "uint16",
-          },
-          {
-            internalType: "uint32",
-            name: "readyTime",
-            type: "uint32",
-          },
-          {
-            internalType: "address",
-            name: "owner",
-            type: "address",
-          },
-        ],
-        internalType: "struct CryptomonCard.Cryptomon[]",
+        internalType: "uint256[]",
         name: "",
-        type: "tuple[]",
+        type: "uint256[]",
       },
     ],
     stateMutability: "view",
@@ -934,26 +913,13 @@ export const abi = [
         name: "_winnerMoncoinsLevelImpact",
         type: "uint16",
       },
+      {
+        internalType: "uint16",
+        name: "_typeFactor",
+        type: "uint16",
+      },
     ],
     name: "setCalcParams",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "bytes32",
-        name: "_challengeHash",
-        type: "bytes32",
-      },
-      {
-        internalType: "uint16[]",
-        name: "_randomNumber",
-        type: "uint16[]",
-      },
-    ],
-    name: "settleChallenge",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -1026,6 +992,19 @@ export const abi = [
       },
     ],
     name: "updateUserConnectivityStatus",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_userAddress",
+        type: "address",
+      },
+    ],
+    name: "updateWinCount",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

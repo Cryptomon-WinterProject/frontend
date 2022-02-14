@@ -1,27 +1,49 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ChallengePlayer.module.css";
 import cancelButton from "../../../Assets/General/Cross.svg";
+import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import data from "../../BattlePage/staticData";
 import PokemonCards from "./../../BattlePage/RightContainer/PokemonCards";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserCards } from "../../../Services/user.service";
+import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime";
 
-function ChallengePlayer() {
-  const [cryptomonSelected, setCryptomonSelected] = useState([0, 1]);
+function ChallengePlayer({ opponentData }) {
+  const [cryptomonSelected, setCryptomonSelected] = useState([]);
+  const [opponentCryptomons, setOpponentCryptomons] = useState([]);
+  const myMonCards = useSelector((state) => state.userReducer.monCards);
+  const contract = useSelector((state) => state.contractReducer.contract);
   const dispatch = useDispatch();
 
-  const opponentCryptomonList = data.cryptomonCards.map((cryptomon, index) => {
+  useEffect(async () => {
+    if (opponentData.address && contract) {
+      const opponentCryptomonCards = await getUserCards(
+        contract,
+        opponentData.address
+      );
+      setOpponentCryptomons(opponentCryptomonCards);
+    }
+  }, [opponentData]);
+
+  const opponentCryptomonList = opponentCryptomons.map((cryptomon, index) => {
+    if (calculateReadyTime(cryptomon.readyTime) > 0) {
+      return;
+    }
     return (
       <PokemonCards
         key={index}
-        monProfile={cryptomon.monProfile}
+        monProfile={cryptomon.monImageUrl}
         monName={cryptomon.monName}
-        monXP={cryptomon.monXP}
-        starLevelProfile={cryptomon.starLevelProfile}
+        monLevel={cryptomon.monLevel}
+        starLevelProfile={StarLevel}
       />
     );
   });
 
-  const myCryptomonList = data.cryptomonCards.map((cryptomon, index) => {
+  const myCryptomonList = myMonCards.map((cryptomon, index) => {
+    if (calculateReadyTime(cryptomon.readyTime) > 0) {
+      return;
+    }
     let isCryptomonSelected = cryptomonSelected.includes(index);
     let selectedIndex = cryptomonSelected.indexOf(index);
     return (
@@ -52,10 +74,10 @@ function ChallengePlayer() {
         </div>
         <PokemonCards
           key={index}
-          monProfile={cryptomon.monProfile}
+          monProfile={cryptomon.monImageUrl}
           monName={cryptomon.monName}
-          monXP={cryptomon.monXP}
-          starLevelProfile={cryptomon.starLevelProfile}
+          monLevel={cryptomon.monLevel}
+          starLevelProfile={StarLevel}
         />
       </div>
     );
@@ -94,7 +116,7 @@ function ChallengePlayer() {
           <div className={styles.OpponentCardDetailsLeft}>
             <div className={styles.UpperWrapper}>
               <img
-                src={data.challengeOnline[0].chalProfile}
+                src={opponentData.profilePictureURL}
                 alt="data.challengeOnline[0]"
                 className={styles.ChallengeProfile}
               />
@@ -104,12 +126,10 @@ function ChallengePlayer() {
                   alt="star-level"
                   className={styles.StarLevel}
                 />
-                <p className={styles.MonLevel}>
-                  {data.challengeOnline[0].chalXP}
-                </p>
+                <p className={styles.MonLevel}>{opponentData.level}</p>
               </div>
             </div>
-            <p className={styles.ParaName}>Joeing glelsfh</p>
+            <p className={styles.ParaName}>{opponentData.name}</p>
           </div>
           <div className={styles.OpponentCardDetailsRight}>
             <div className={styles.OpponentDetailsHeading}>

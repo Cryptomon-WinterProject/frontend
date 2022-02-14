@@ -14,6 +14,7 @@ export const getOnlinePlayers = async (contract, account) => {
       for (let j = 11; j < keys.length; j++) {
         localObj[keys[j]] = player[keys[j]];
       }
+      localObj.address = addresses[i];
       dataToReturn.push(localObj);
     }
     return dataToReturn;

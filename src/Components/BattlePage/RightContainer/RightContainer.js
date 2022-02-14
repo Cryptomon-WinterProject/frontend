@@ -23,15 +23,14 @@ function RightContainer() {
     }
   }, [account]);
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = (opponentData) => {
     dispatch({
       type: "HANDLE_POPUP_OPEN",
       popupOpen: true,
     });
     dispatch({
       type: "HANDLE_POPUP_COMPONENT_RENDER",
-      popupComponent: <ChallengePlayer />,
+      popupComponent: <ChallengePlayer opponentData={opponentData} />,
     });
   };
 
@@ -50,12 +49,12 @@ function RightContainer() {
     );
   });
 
-  const challengeArrList = onlinePlayers?.map((challenge, index) => {
+  const challengeArrList = onlinePlayers?.map((challenger, index) => {
     return (
       <div className={styles.ChallengeCardWrapper} key={index}>
         <div className={styles.UpperWrapper}>
           <img
-            src={challenge.profilePictureURL}
+            src={challenger.profilePictureURL}
             alt="challenge"
             className={styles.chalProfile}
           />
@@ -65,12 +64,12 @@ function RightContainer() {
               alt="star-level"
               className={styles.StarLevel}
             />
-            <p className={styles.MonLevel}>{challenge.level}</p>
+            <p className={styles.MonLevel}>{challenger.level}</p>
           </div>
         </div>
         <div className={styles.LowerContainerWrapper2}>
-          <p className={styles.chalName}>{challenge.name}</p>
-          <button onClick={handleClick}>Challenge</button>
+          <p className={styles.chalName}>{challenger.name}</p>
+          <button onClick={() => handleClick(challenger)}>Challenge</button>
         </div>
       </div>
     );

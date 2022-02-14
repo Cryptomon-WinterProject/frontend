@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import styles from "./Training.module.css";
 import cross from "../../../Assets/Training/cancel.svg";
-import poke from "../../../Assets/Training/pokemon_bg.svg";
 import moncoin from "../../../Assets/Training/M-moncoin.svg";
 import PropTypes from "prop-types";
 import Slider, { SliderThumb } from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
+import { useDispatch, useSelector } from "react-redux";
+import { trainCryptomon } from "../../../Services/training.service";
 
-function Training({
-  name = "abcmon",
-  Duration = 25,
-  Rate = 15,
-  rate1 = 20,
-  amount = 45,
-}) {
-  const [duration, setduration] = useState(Duration);
-  const [rate, setrate] = useState(Rate);
+function Training({ cardData }) {
+  const contract = useSelector((state) => state.contractReducer.contract);
+  const account = useSelector((state) => state.contractReducer.account);
+  const dispatch = useDispatch();
+  const [duration, setduration] = useState(25);
+  const [rate, setrate] = useState(15);
 
   const durationHandler = (event, newduration) => {
     setduration(newduration);
   };
   const rateHandler = (event, newrate) => {
     setrate(newrate);
+  };
+
+  const handleTraining = async () => {
+    const charge = Math.floor((duration * rate) / 120);
+    await trainCryptomon(contract, account, cardData.monId, duration, charge);
   };
 
   const PrettoSlider = styled(Slider)({
@@ -34,7 +37,7 @@ function Training({
       height: 24,
       width: 24,
       backgroundColor: "#fff",
-      margin:1,
+      margin: 1,
       border: "2px solid currentColor",
       "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
         boxShadow: "inherit",
@@ -87,20 +90,25 @@ function Training({
     children: PropTypes.node,
   };
 
-  console.log(duration);
-
   return (
     <div className={styles.PopupBg}>
       <div className={styles.MainWrapper}>
         <div className={styles.ImageWrapper}>
-          <img src={poke} alt="" className={styles.PokeImg} />
+          <img src={cardData.monImageUrl} alt="" className={styles.PokeImg} />
         </div>
 
         <div className={styles.Header}>
           <div className={styles.traingin_pokename}>
-            Train<span>{name}</span>
+            Train<span>{cardData.monName}</span>
           </div>
-          <img src={cross} alt="" className={styles.cross}></img>
+          <img
+            src={cross}
+            alt=""
+            className={styles.cross}
+            onClick={() => {
+              dispatch({ type: "HANDLE_POPUP_OPEN", popupOpen: false });
+            }}
+          ></img>
         </div>
 
         <div className={styles.DescriptionWrapper}>
@@ -123,7 +131,7 @@ function Training({
           <div className={styles.rate}>
             rate:
             <span>
-              {rate} + <span>{rate1}XP Free</span> / Hour
+              {rate} + <span>{cardData.trainingGainPerHour}XP Free</span> / Hour
             </span>
           </div>
 
@@ -140,9 +148,9 @@ function Training({
           </div>
 
           <div className={styles.pay_button}>
-            <button className={styles.paybtn}>
+            <button className={styles.paybtn} onClick={() => handleTraining()}>
               <div className={styles.btn_content}>
-                Train and pay <span>{amount}</span>
+                Train and pay <span>{Math.floor((duration * rate) / 120)}</span>
                 <img
                   src={moncoin}
                   alt="moncoin"

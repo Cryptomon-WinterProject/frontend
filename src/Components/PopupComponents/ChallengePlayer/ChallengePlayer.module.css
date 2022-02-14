@@ -52,6 +52,12 @@
   height: 15rem;
   position: relative;
 }
+.ChallengeProfile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .MonLevelXPWrapper2 {
   width: 4.5rem;
   height: 4.5rem;

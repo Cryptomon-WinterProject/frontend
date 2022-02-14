@@ -1,8 +1,9 @@
 .MainWrapper {
   display: flex;
   align-items: center;
-  height: 100vh;
+  background: var(--white);
   width: 100%;
+  border-radius: 1rem;
 }
 .PopupWrapper {
   height: 38rem;
@@ -113,10 +114,10 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .InfoWrapper {
-        width: 100%;
-      }
-      .PopupWrapper {
-        height: 45rem;
-      }
+  .InfoWrapper {
+    width: 100%;
   }
+  .PopupWrapper {
+    height: 45rem;
+  }
+}

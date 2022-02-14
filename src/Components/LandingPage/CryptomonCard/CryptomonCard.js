@@ -5,11 +5,27 @@ import styles from "./CryptomonCard.module.css";
 import PokemonImage from "../../../Assets/LandingPage/Pokemon.png";
 import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime";
+import { useDispatch } from "react-redux";
+import Training from "../../PopupComponents/TrainingPopup";
 
-function CryptomonCard({ cardData, totalXP = 300 }) {
+function CryptomonCard({ cardData }) {
   const timeLeft = calculateReadyTime(cardData.readyTime);
+  const dispatch = useDispatch();
+
   return (
-    <div className={styles.CryptomonCardWrapper}>
+    <div
+      className={styles.CryptomonCardWrapper}
+      onClick={() => {
+        dispatch({
+          type: "HANDLE_POPUP_COMPONENT_RENDER",
+          popupComponent: <Training cardData={cardData} />,
+        });
+        dispatch({
+          type: "HANDLE_POPUP_OPEN",
+          popupOpen: true,
+        });
+      }}
+    >
       <img
         src={cardData.monImageUrl}
         alt="Pokemon"
@@ -22,12 +38,14 @@ function CryptomonCard({ cardData, totalXP = 300 }) {
             <div
               className={styles.ProgressBarFill}
               style={{
-                width: `${(cardData.XP / (80 + cardData.XP * 20)) * 100}%`,
+                width: `${
+                  (cardData.XP / (80 + cardData.monLevel * 20)) * 100
+                }%`,
               }}
             ></div>
           </div>
           <p className={styles.MonXP}>
-            {cardData.XP}/{80 + cardData.XP * 20} XP
+            {cardData.XP}/{80 + cardData.monLevel * 20} XP
           </p>
         </div>
         <div className={styles.MonLevelWrapper}>

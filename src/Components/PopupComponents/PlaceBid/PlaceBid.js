@@ -6,8 +6,11 @@ import poke from "../../../Assets/PlaceBid/poke.svg";
 import moncoin from "../../../Assets/PlaceBid/moncoin.svg";
 import StarLevel from "../../../Assets/PlaceBid/StarLevel.svg";
 import RatingBar from "../../../Assets/PlaceBid/RatingBar.svg";
+import { useDispatch } from "react-redux";
 
 function PlaceBid() {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.PopupBg}>
       <div className={styles.MainWrapper}>
@@ -17,7 +20,14 @@ function PlaceBid() {
 
         <div className={styles.Header}>
           <img src={logo} alt="" className={styles.logo}></img>
-          <img src={cross} alt="" className={styles.cross}></img>
+          <img
+            src={cross}
+            alt=""
+            className={styles.cross}
+            onClick={() => {
+              dispatch({ type: "HANDLE_POPUP_OPEN", popupOpen: false });
+            }}
+          ></img>
         </div>
 
         <div className={styles.DescriptionWrapper}>
