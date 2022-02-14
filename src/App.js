@@ -15,11 +15,11 @@ import PlaceBid from "./Components/PopupComponents/PlaceBid";
 // import AddAuction from "./Components/Popup/AddAuction/AddAuction";
 // import ConfirmPurchase from "./Components/Popup/ConfirmPurchase/ConfirmPurchase";
 // import AddBalance from "./Components/Popup/AddBalance/AddBalance";
-import PopUp from "./Components/Popup";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserCards, getUserData } from "./Services/user.service";
 import { useLocation } from "react-router-dom";
 import { getStoreCards } from "./Services/store.service";
+import PopUp from "./Components/PopUp/index";
 
 const App = () => {
   const componentToRender = useSelector(
