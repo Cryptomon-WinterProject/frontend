@@ -50,6 +50,7 @@
   z-index: 4;
   color: var(--white);
   font-weight: 500;
+  font-size: var(--font-14);
 }
 .MonName {
   font-weight: 600;
@@ -103,6 +104,11 @@
   color: var(--ter-black);
   cursor: pointer;
   outline: none;
+  transition: all 0.15s ease-in-out;
+}
+.LowerContainerWrapper2 button:hover {
+  background: var(--ter-black);
+  color: var(--white);
 }
 .Wrapper {
   padding-top: 3.4rem;

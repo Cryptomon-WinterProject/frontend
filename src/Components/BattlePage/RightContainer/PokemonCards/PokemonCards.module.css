@@ -18,12 +18,18 @@
   width: 12.5rem;
   border: 2px solid var(--sec-grey);
   border-radius: 0.5rem;
+  display: flex;
+  padding-top: 0.7rem;
+  padding-bottom: 0.5rem;
+  flex-direction: column;
+  height: 18.1rem;
 }
 .MonProfile {
-  width: 100%;
-  height: 72%;
-  object-fit: cover;
+  display: block;
+  width: 95%;
+  max-height: 13.5rem;
   border-radius: 0.5rem;
+  margin: auto;
 }
 .MonLevelXPWrapper,
 .MonLevelXPWrapper2 {
@@ -37,25 +43,31 @@
 .LowerContainerWrapper {
   display: flex;
   align-items: center;
+  grid-gap: 0.7rem;
   gap: 0.7rem;
-  padding-top: 0.5rem;
-  padding-left: 0.9rem;
+  padding-left: 0.5rem;
 }
 .StarLevel {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 3rem;
+  height: 3rem;
 }
 .MonLevel {
   z-index: 4;
   color: var(--white);
   font-weight: 500;
 }
+
 .MonName {
   font-weight: 600;
-  font-size: var(--font-15);
+  font-size: var(--font-14);
   text-transform: uppercase;
   color: var(--sec-black);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 70%;
 }
 .ChallengeList {
   display: flex;
