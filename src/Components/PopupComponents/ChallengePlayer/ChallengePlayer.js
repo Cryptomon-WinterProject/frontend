@@ -7,6 +7,7 @@ import PokemonCards from "./../../BattlePage/RightContainer/PokemonCards";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserCards } from "../../../Services/user.service";
 import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime";
+import ChallengeResult from "../ChallengeResult/ChallengeResult";
 
 function ChallengePlayer({ opponentData }) {
   const [cryptomonSelected, setCryptomonSelected] = useState([]);
@@ -24,6 +25,14 @@ function ChallengePlayer({ opponentData }) {
       setOpponentCryptomons(opponentCryptomonCards);
     }
   }, [opponentData]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "HANDLE_POPUP_COMPONENT_RENDER",
+      popupComponent: <ChallengeResult />,
+    });
+  };
 
   const opponentCryptomonList = opponentCryptomons.map((cryptomon, index) => {
     if (calculateReadyTime(cryptomon.readyTime) > 0) {
@@ -49,6 +58,7 @@ function ChallengePlayer({ opponentData }) {
     return (
       <div
         className={styles.MyCryptomonListWrapper}
+        key={index}
         onClick={() => {
           let arr = [...cryptomonSelected];
           if (isCryptomonSelected) {
@@ -84,7 +94,7 @@ function ChallengePlayer({ opponentData }) {
   });
 
   return (
-    <div className={styles.Wrapper}>
+    <form className={styles.Wrapper} onSubmit={handleSubmit}>
       <div className={styles.HeadingWrapper}>
         <div className={styles.Heading}>
           <span className={styles.YellowPrimary}>Challenge</span>{" "}
@@ -150,7 +160,7 @@ function ChallengePlayer({ opponentData }) {
         <div className={styles.OpponentCryptomonList2}>{myCryptomonList}</div>
         <button className={styles.LowerWrapperWrapperButton}>Challenge</button>
       </div>
-    </div>
+    </form>
   );
 }
 

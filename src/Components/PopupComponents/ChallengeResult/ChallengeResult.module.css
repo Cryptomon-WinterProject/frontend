@@ -1,0 +1,103 @@
+.Wrapper {
+  composes: Wrapper from "../ChallengePlayer/ChallengePlayer.module.css";
+  width: 45rem;
+  padding-bottom: 1.5rem;
+}
+.HeadingWrapper {
+  composes: HeadingWrapper from "../ChallengePlayer/ChallengePlayer.module.css";
+}
+.Heading {
+  composes: Heading from "../ChallengePlayer/ChallengePlayer.module.css";
+}
+.HeadingWrapper img {
+  cursor: pointer;
+}
+.YellowPrimary {
+  color: var(--yellow-primary);
+}
+.BlackPrimary {
+  color: var(--sec-black);
+}
+.RoundWrapper,
+.LowerContainer {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.RoundNumber {
+  font-size: var(--font-16);
+  text-transform: uppercase;
+  padding-bottom: 0.8rem;
+  color: var(--sec-black);
+  border-bottom: 1px solid var(--ter-black);
+}
+#RoundNumberOverall {
+  border-bottom: 0;
+}
+.PokemonsDetails {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 0;
+}
+.PokemonsDetails :nth-child(2) {
+  width: 0.8rem;
+  object-fit: contain;
+}
+.PokemonsDetails img:nth-child(1),
+.PokemonsDetails img:nth-child(3) {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+.ResultWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.ResultWrapper div:first-child {
+  font-weight: 500;
+  font-size: var(--font-12);
+  width: fit-content;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5rem;
+}
+.ResultWrapperXP {
+  font-weight: 500;
+  font-size: var(--font-12);
+  text-transform: uppercase;
+  color: var(--sec-black);
+}
+.ResultDotsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.ResultDot {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  border: 1px solid var(--sec-black);
+}
+.OverallResultText {
+  font-weight: 600;
+  font-size: var(--font-16);
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 1rem 2.7rem;
+  width: fit-content;
+  border-radius: 5.3rem;
+  margin: 1rem auto;
+}
+.OverallResultXP {
+  font-weight: 500;
+  font-size: var(--font-16);
+  text-transform: uppercase;
+  color: var(--sec-black);
+  text-align: center;
+}
