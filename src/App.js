@@ -21,6 +21,7 @@ import { useLocation } from "react-router-dom";
 import { getStoreCards } from "./Services/store.service";
 import PopUp from "./Components/PopUp/index";
 import socketIo from "socket.io-client";
+import { SOCKET_URL } from "./Utils/constants";
 
 const App = () => {
   const socket = useRef();
@@ -35,7 +36,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket.current = socketIo("http://localhost:7070/", {
+    socket.current = socketIo(SOCKET_URL, {
       transports: ["websocket"],
     });
 
