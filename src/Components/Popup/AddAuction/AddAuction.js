@@ -1,42 +1,46 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./AddAuction.module.css";
 import cross from "../../../Assets/AddAuction/cross_black.svg";
 import moncoin from "../../../Assets/PlaceBid/moncoin.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PokemonCards from "../../BattlePage/RightContainer/PokemonCards";
 import starLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import selectedMark from "../../../Assets/AddAuction/selectedMark.svg";
+import { addToAuction } from "../../../Services/auction.service";
+import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime";
 
 function AddAuction() {
+  const inputRef = useRef(null);
   const myMonCards = useSelector((state) => state.userReducer.monCards);
-  const [cryptomonSelected, setCryptomonSelected] = useState([]);
+  const contract = useSelector((state) => state.contractReducer.contract);
+  const account = useSelector((state) => state.contractReducer.account);
+  const dispatch = useDispatch();
+  const [cryptomonSelected, setCryptomonSelected] = useState();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const minAmount = inputRef.current.value;
+    await addToAuction(contract, account, cryptomonSelected, minAmount);
+  };
 
   const myCryptomonList = myMonCards.map((cryptomon, index) => {
-    let isCryptomonSelected = cryptomonSelected.includes(index);
-    let selectedIndex = cryptomonSelected.indexOf(index);
+    if (calculateReadyTime(cryptomon.readyTime) > 0) {
+      return;
+    }
     return (
       <div
         className={styles.MyCryptomonListWrapper}
         key={index}
         onClick={() => {
-          let arr = [...cryptomonSelected];
-          if (isCryptomonSelected) {
-            arr.splice(selectedIndex, 1);
-            setCryptomonSelected(arr);
-          } else {
-            if (cryptomonSelected.length < 3) {
-              arr.push(index);
-              setCryptomonSelected(arr);
-            } else {
-              alert("You can select maximum 3 cryptomons");
-            }
-          }
+          setCryptomonSelected(index);
         }}
       >
         <div
           className={styles.MyCryptomonListSubWrapper}
           style={
-            isCryptomonSelected ? { display: "flex" } : { display: "none" }
+            cryptomonSelected === index
+              ? { display: "flex" }
+              : { display: "none" }
           }
         >
           <img src={selectedMark} alt="mark" />
@@ -52,13 +56,20 @@ function AddAuction() {
     );
   });
   return (
-    <div className={styles.MainWrapper}>
+    <form onSubmit={handleSubmit} className={styles.MainWrapper}>
       <div className={styles.PopupWrapper}>
         <div className={styles.Topbar}>
           <div className={styles.Logo}>
             <span className={styles.yellow}>Sell</span> <span>Cryptomon</span>
           </div>
-          <img src={cross} alt="" className={styles.cross} />
+          <img
+            src={cross}
+            alt=""
+            className={styles.cross}
+            onClick={() => {
+              dispatch({ type: "HANDLE_POPUP_OPEN", popupOpen: false });
+            }}
+          />
         </div>
         <div className={styles.BodyWrapper}>
           <div className={styles.Heading}>
@@ -71,13 +82,14 @@ function AddAuction() {
               <div className={styles.InfoDesc}> (Non Zero) </div>
             </div>
             <div className={styles.InfoButton}>
-              50 <img src={moncoin} alt="" className={styles.moncoin} />
+              <input type="number" defaultValue={50} ref={inputRef} />{" "}
+              <img src={moncoin} alt="" className={styles.moncoin} />
             </div>
           </div>
-          <div className={styles.FinalButton}>Sell Cryptomon</div>
+          <button className={styles.FinalButton}>Sell Cryptomon</button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 

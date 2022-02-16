@@ -17,6 +17,7 @@ function RightContainer() {
   const account = useSelector((state) => state.contractReducer.account);
   const [onlinePlayers, setOnlinePlayers] = useState([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     if (account) {
       const onlinePlayers = await getOnlinePlayers(contract, account);

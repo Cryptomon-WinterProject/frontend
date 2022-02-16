@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Web3 from "web3";
+import "./Utils/env";
 
 import { Switch, Route } from "react-router-dom";
 import { abi, address } from "./config";
@@ -19,9 +20,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserCards, getUserData } from "./Services/user.service";
 import { useLocation } from "react-router-dom";
 import { getStoreCards } from "./Services/store.service";
-import PopUp from "./Components/PopUp/index";
+import PopUp from "./Components/Popup";
+import socketIo from "socket.io-client";
+import { SOCKET_URL } from "./Utils/constants";
 
 const App = () => {
+  const socket = useRef();
+
   const componentToRender = useSelector(
     (state) => state.popupHandle.popupComponent
   );
@@ -32,12 +37,20 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    socket.current = socketIo(SOCKET_URL, {
+      transports: ["websocket"],
+    });
+
     async function load() {
       let appdataLocale = {};
 
       const web3 = new Web3(Web3.givenProvider);
       appdataLocale.account = (await web3.eth.requestAccounts())[0];
+
+      socket.current.emit("login", { address: appdataLocale.account });
+
       appdataLocale.contract = new web3.eth.Contract(abi, address);
+
       // if (
       //   appdataLocale.account == "0xC48E03A9e023b0b12173dAeE8E61e058062BC327"
       // ) {
@@ -57,6 +70,11 @@ const App = () => {
     }
 
     load();
+
+    return () => {
+      // Disconnect socket
+      socket.current.close();
+    };
   }, []);
 
   useEffect(() => {

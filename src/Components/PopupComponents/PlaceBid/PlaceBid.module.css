@@ -45,6 +45,45 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+.ProgressBarWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ProgressBarBorder {
+  margin-left: 1.6rem;
+  margin-top: 1rem;
+  width: 16rem;
+  height: 0.8rem;
+  border-radius: 13px;
+  border: 1px solid var(--ter-black);
+}
+.ProgressBarFill {
+  height: 100%;
+  background: var(--yellow-primary);
+  border-radius: 13px;
+}
+.MonXP {
+  margin-left: 1.6rem;
+  margin-top: 0.5rem;
+  font-size: var(--font-13);
+  font-weight: 500;
+}
+.MonLevelWrapper {
+  position: relative;
+  margin-right: 1.12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.MonLevel {
+  position: absolute;
+  font-size: var(--font-10);
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+  color: var(--white);
+}
 .ProfileContainer {
   display: flex;
   width: 50%;
@@ -133,6 +172,7 @@
 }
 .Button2 {
   width: 90%;
+  cursor: pointer;
   margin: 0 auto;
   height: 3.5rem;
   border: 1px solid #ffcb05;
