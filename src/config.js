@@ -1,4 +1,4 @@
-export const address = "0xCDbd74075Fe5a806A2aABD5d2f49bB23b2ebCF43";
+export const address = "0x94A3a394285eeB22e977175D3B015F2248b66890";
 
 export const abi = [
   {
@@ -103,6 +103,12 @@ export const abi = [
         internalType: "address",
         name: "_player",
         type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "bool",
+        name: "_ready",
+        type: "bool",
       },
     ],
     name: "ChallengeReady",
@@ -294,6 +300,14 @@ export const abi = [
     constant: true,
   },
   {
+    inputs: [],
+    name: "buyMonCoins",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+    payable: true,
+  },
+  {
     inputs: [
       {
         internalType: "address",
@@ -345,31 +359,6 @@ export const abi = [
       },
     ],
     name: "compareStrings",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "pure",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "string[]",
-        name: "array",
-        type: "string[]",
-      },
-      {
-        internalType: "string",
-        name: "value",
-        type: "string",
-      },
-    ],
-    name: "containsStringInArray",
     outputs: [
       {
         internalType: "bool",
@@ -525,52 +514,6 @@ export const abi = [
     stateMutability: "view",
     type: "function",
     constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-    ],
-    name: "deleteMonCollection",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "string[]",
-            name: "names",
-            type: "string[]",
-          },
-          {
-            internalType: "string[]",
-            name: "images",
-            type: "string[]",
-          },
-          {
-            internalType: "uint256",
-            name: "price",
-            type: "uint256",
-          },
-          {
-            internalType: "string",
-            name: "monType",
-            type: "string",
-          },
-          {
-            internalType: "uint8",
-            name: "trainingGainPerHour",
-            type: "uint8",
-          },
-        ],
-        internalType: "struct CryptomonCollection.MonCollection[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "nonpayable",
-    type: "function",
   },
   {
     inputs: [
@@ -889,37 +832,17 @@ export const abi = [
   {
     inputs: [
       {
-        internalType: "uint16",
-        name: "_randomNumberMultiplier",
-        type: "uint16",
+        internalType: "bytes32",
+        name: "_challengeHash",
+        type: "bytes32",
       },
       {
-        internalType: "uint16",
-        name: "_monWinXPIncrease",
-        type: "uint16",
-      },
-      {
-        internalType: "uint16",
-        name: "_monWinXPLevelImpact",
-        type: "uint16",
-      },
-      {
-        internalType: "uint16",
-        name: "_winnerMoncoinsIncrease",
-        type: "uint16",
-      },
-      {
-        internalType: "uint16",
-        name: "_winnerMoncoinsLevelImpact",
-        type: "uint16",
-      },
-      {
-        internalType: "uint16",
-        name: "_typeFactor",
-        type: "uint16",
+        internalType: "uint16[]",
+        name: "_randomNumber",
+        type: "uint16[]",
       },
     ],
-    name: "setCalcParams",
+    name: "settleChallenge",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
