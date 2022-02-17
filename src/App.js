@@ -4,7 +4,6 @@ import "./Utils/env";
 
 import { Switch, Route } from "react-router-dom";
 import { abi, address } from "./config";
-
 import LandingPage from "./Containers/LandingPage";
 import AuctionPage from "./Containers/AuctionPage";
 import BattlePage from "./Containers/BattlePage";
@@ -17,14 +16,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserCards, getUserData } from "./Services/user.service";
 import { useLocation } from "react-router-dom";
 import { getStoreCards } from "./Services/store.service";
-<<<<<<< HEAD
 import PopUp from "./Components/Popup";
-=======
-import PopUp from "./Components/PopUp";
-// import PopUp from "./Components/Popup";
 import socketIo from "socket.io-client";
 import { SOCKET_URL } from "./Utils/constants";
->>>>>>> 698937e3fa1a613c7c14853be3b622a81f50d1c2
 
 const App = () => {
   const socket = useRef();
