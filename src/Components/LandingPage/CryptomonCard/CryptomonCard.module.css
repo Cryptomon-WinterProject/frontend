@@ -1,13 +1,16 @@
 .CryptomonCardWrapper {
-  height: 37rem;
   width: 24rem;
   border: 1px solid var(--ter-black);
   border-radius: 8px;
+  padding-bottom: 1rem;
 }
 .MonProfile {
-  width: 100%;
+  width: 95%;
   height: 25rem;
   border-radius: 0.8rem 0.8rem 0px 0px;
+  display: block;
+  margin: auto;
+  padding-top: 1rem;
 }
 .MonName {
   text-transform: uppercase;
@@ -50,7 +53,7 @@
 }
 .MonLevel {
   position: absolute;
-  font-size: var(--font-10);
+  font-size: var(--font-12);
   margin-bottom: 0.2rem;
   font-weight: 600;
   color: var(--white);

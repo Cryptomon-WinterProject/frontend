@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./RightContainer.module.css";
 import starLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import data from "../staticData";
+import Logo from "../../../Assets/General/Logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 import ChallengePlayer from "../../PopupComponents/ChallengePlayer";
 import PokemonCards from "./PokemonCards";
@@ -88,6 +89,8 @@ function RightContainer() {
 
   return (
     <div className={styles.WrapperWrapperWrapper}>
+      <img src={Logo} alt="Logo" className={styles.CryptomonLogo} />
+
       <div className={styles.WrapperWrapper}>
         <h2 className={styles.Heading}>{data.heading[0]}</h2>
         <div className={styles.AvialPokeList}>{pokeMonList}</div>
