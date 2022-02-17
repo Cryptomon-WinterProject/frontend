@@ -8,12 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserCards } from "../../../Services/user.service";
 import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime";
 import ChallengeResult from "../ChallengeResult/ChallengeResult";
+import { challangePlayer } from "../../../Services/battle.service";
 
 function ChallengePlayer({ opponentData }) {
   const [cryptomonSelected, setCryptomonSelected] = useState([]);
   const [opponentCryptomons, setOpponentCryptomons] = useState([]);
+
   const myMonCards = useSelector((state) => state.userReducer.monCards);
   const contract = useSelector((state) => state.contractReducer.contract);
+  const account = useSelector((state) => state.contractReducer.account);
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -26,12 +29,28 @@ function ChallengePlayer({ opponentData }) {
     }
   }, [opponentData]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({
-      type: "HANDLE_POPUP_COMPONENT_RENDER",
-      popupComponent: <ChallengeResult />,
-    });
+    if (cryptomonSelected.length === 3) {
+      try {
+        const monIds = new Array(3);
+
+        for (let i = 0; i < cryptomonSelected.length; i++) {
+          monIds[i] = myMonCards[cryptomonSelected[i]].monId;
+        }
+        console.log(contract, account, monIds, opponentData.address);
+        await challangePlayer(contract, account, monIds, opponentData.address);
+        dispatch({
+          type: "HANDLE_POPUP_COMPONENT_RENDER",
+          popupComponent: <ChallengeResult />,
+        });
+      } catch (err) {
+        console.log(err);
+        alert("Something went wrong");
+      }
+    } else {
+      alert("Please select 3 cryptomons");
+    }
   };
 
   const opponentCryptomonList = opponentCryptomons.map((cryptomon, index) => {
@@ -50,6 +69,7 @@ function ChallengePlayer({ opponentData }) {
   });
 
   const myCryptomonList = myMonCards.map((cryptomon, index) => {
+    console.log(cryptomon);
     if (calculateReadyTime(cryptomon.readyTime) > 0) {
       return;
     }
