@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserCards, getUserData } from "./Services/user.service";
 import { useLocation } from "react-router-dom";
 import { getStoreCards } from "./Services/store.service";
-import PopUp from "./Components/PopUp/index";
+import PopUp from "./Components/Popup";
 
 const App = () => {
   const componentToRender = useSelector(
