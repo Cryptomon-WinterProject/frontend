@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ChallengePlayer from "../../PopupComponents/ChallengePlayer";
 import PokemonCards from "./PokemonCards";
 import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime.js";
+import OnlinePlayerCard from "./OnlinePlayerCard/OnlinePlayerCard";
 import { getOnlinePlayers } from "../../../Services/battle.service";
 
 function RightContainer() {
@@ -19,10 +20,35 @@ function RightContainer() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     if (account) {
-      const onlinePlayers = await getOnlinePlayers(contract, account);
-      setOnlinePlayers(onlinePlayers);
+      const localOnlinePlayers = await getOnlinePlayers(contract);
+      // const localOnlinePlayers = [];
+      contract.events.ChallengeReady(async (error, event) => {
+        if (error) {
+          console.log("error:", error);
+        } else {
+          if (event.returnValues._ready) {
+            setOnlinePlayers([
+              ...localOnlinePlayers,
+              event.returnValues._player,
+            ]);
+          } else {
+            setOnlinePlayers(
+              localOnlinePlayers.filter(
+                (player) => player !== event.returnValues._player
+              )
+            );
+          }
+          console.log(
+            event.returnValues._player + " -> " + event.returnValues._ready
+          );
+        }
+      });
     }
   }, [account]);
+
+  useEffect(() => {
+    console.log(onlinePlayers);
+  }, [onlinePlayers]);
 
   const handleClick = (opponentData) => {
     dispatch({
@@ -50,29 +76,13 @@ function RightContainer() {
     );
   });
 
-  const challengeArrList = onlinePlayers?.map((challenger, index) => {
+  const challengeArrList = onlinePlayers?.map((player, index) => {
     return (
-      <div className={styles.ChallengeCardWrapper} key={index}>
-        <div className={styles.UpperWrapper}>
-          <img
-            src={challenger.profilePictureURL}
-            alt="challenge"
-            className={styles.chalProfile}
-          />
-          <div className={styles.MonLevelXPWrapper2}>
-            <img
-              src={starLevel}
-              alt="star-level"
-              className={styles.StarLevel}
-            />
-            <p className={styles.MonLevel}>{challenger.level}</p>
-          </div>
-        </div>
-        <div className={styles.LowerContainerWrapper2}>
-          <p className={styles.chalName}>{challenger.name}</p>
-          <button onClick={() => handleClick(challenger)}>Challenge</button>
-        </div>
-      </div>
+      <OnlinePlayerCard
+        playerAddress={player}
+        key={index}
+        handleClick={handleClick}
+      />
     );
   });
 
