@@ -19,6 +19,7 @@ import { getStoreCards } from "./Services/store.service";
 import PopUp from "./Components/PopUp";
 import socketIo from "socket.io-client";
 import { SOCKET_URL } from "./Utils/constants";
+import { acceptChallenge } from "./Services/battle.service";
 
 const App = () => {
   const socket = useRef();
@@ -87,6 +88,24 @@ const App = () => {
       const userDetails = await getUserData(contract, account);
       const monCards = await getUserCards(contract, account);
       const storeCards = await getStoreCards(contract, account);
+
+      contract.events.NewChallenge(async (error, event) => {
+        if (error) {
+          console.log("error:", error);
+        } else {
+          const challanger = event.returnValues._challenger;
+          const opponent = event.returnValues._opponent;
+
+          if (opponent === account) {
+            const acceptChallange = await acceptChallenge(
+              contract,
+              account,
+              challanger,
+              [7, 5, 6]
+            );
+          }
+        }
+      });
 
       dispatch({
         type: "SET_USER_DETAILS",

@@ -22,3 +22,33 @@ export const getOnlinePlayers = async (contract, account) => {
     throw err;
   }
 };
+
+export const challangePlayer = async (
+  contract,
+  account,
+  monIDs,
+  opponentAddress
+) => {
+  try {
+    await contract.methods
+      .challenge(opponentAddress, monIDs)
+      .send({ from: account });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const acceptChallenge = async (
+  contract,
+  account,
+  challengerAddress,
+  monIDs
+) => {
+  try {
+    await contract.methods
+      .acceptChallenge(challengerAddress, monIDs)
+      .send({ from: account });
+  } catch (err) {
+    throw err;
+  }
+};
