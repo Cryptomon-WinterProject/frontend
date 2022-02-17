@@ -21,35 +21,28 @@ function RightContainer() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     if (account) {
-      const localOnlinePlayers = await getOnlinePlayers(contract);
-      // const localOnlinePlayers = [];
+      let localOnlinePlayers = await getOnlinePlayers(contract);
+      setOnlinePlayers(localOnlinePlayers);
       contract.events.ChallengeReady(async (error, event) => {
         if (error) {
           console.log("error:", error);
         } else {
           if (event.returnValues._ready) {
-            setOnlinePlayers([
+            localOnlinePlayers = [
               ...localOnlinePlayers,
               event.returnValues._player,
-            ]);
+            ];
+            setOnlinePlayers(localOnlinePlayers);
           } else {
-            setOnlinePlayers(
-              localOnlinePlayers.filter(
-                (player) => player !== event.returnValues._player
-              )
+            localOnlinePlayers = localOnlinePlayers.filter(
+              (player) => player !== event.returnValues._player
             );
+            setOnlinePlayers(localOnlinePlayers);
           }
-          console.log(
-            event.returnValues._player + " -> " + event.returnValues._ready
-          );
         }
       });
     }
   }, [account]);
-
-  useEffect(() => {
-    console.log(onlinePlayers);
-  }, [onlinePlayers]);
 
   const handleClick = (opponentData) => {
     dispatch({
@@ -77,15 +70,17 @@ function RightContainer() {
     );
   });
 
-  const challengeArrList = onlinePlayers?.map((player, index) => {
-    return (
-      <OnlinePlayerCard
-        playerAddress={player}
-        key={index}
-        handleClick={handleClick}
-      />
-    );
-  });
+  const challengeArrList = onlinePlayers
+    ?.filter((player) => player !== account)
+    .map((player, index) => {
+      return (
+        <OnlinePlayerCard
+          playerAddress={player}
+          key={index}
+          handleClick={handleClick}
+        />
+      );
+    });
 
   return (
     <div className={styles.WrapperWrapperWrapper}>

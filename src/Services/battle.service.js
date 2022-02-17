@@ -18,7 +18,6 @@ export const getPlayerData = async (contract, account) => {
 export const getOnlinePlayers = async (contract) => {
   try {
     const onlinePlayers = await contract.methods.getOnlinePlayers().call();
-    console.log(onlinePlayers);
     return onlinePlayers;
   } catch (err) {
     throw err;

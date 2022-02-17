@@ -11,10 +11,19 @@
 }
 .MonLevelXPWrapper2 {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 5rem;
   height: 5rem;
   right: -8%;
   top: 60%;
+}
+.MonLevel {
+  position: absolute;
+  color: var(--white);
+  font-size: var(--font-12);
+  font-weight: 600;
 }
 .LowerContainerWrapper2 {
   display: flex;
