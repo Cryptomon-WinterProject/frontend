@@ -95,6 +95,9 @@ function ChallengeResult() {
               : colors.loseColor,
           }}
           className={styles.OverallResultText}
+          onClick={() => {
+            dispatch({ type: "HANDLE_POPUP_OPEN", popupOpen: false });
+          }}
         >
           {isOverallWinner ? "You Won" : "You Lose"}
         </div>

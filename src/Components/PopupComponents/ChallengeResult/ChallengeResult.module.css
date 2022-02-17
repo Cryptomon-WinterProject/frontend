@@ -26,7 +26,7 @@
 .RoundNumber {
   font-size: var(--font-16);
   text-transform: uppercase;
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
   color: var(--sec-black);
   border-bottom: 1px solid var(--ter-black);
 }
@@ -45,8 +45,8 @@
 }
 .PokemonsDetails img:nth-child(1),
 .PokemonsDetails img:nth-child(3) {
-  width: 7rem;
-  height: 7rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 0.5rem;
   object-fit: cover;
 }
@@ -58,7 +58,7 @@
 }
 .ResultWrapper div:first-child {
   font-weight: 500;
-  font-size: var(--font-12);
+  font-size: var(--font-13);
   width: fit-content;
   text-transform: uppercase;
   padding: 0.3rem 1rem;
@@ -68,7 +68,7 @@
 }
 .ResultWrapperXP {
   font-weight: 500;
-  font-size: var(--font-12);
+  font-size: var(--font-13);
   text-transform: uppercase;
   color: var(--sec-black);
 }
@@ -93,6 +93,7 @@
   width: fit-content;
   border-radius: 5.3rem;
   margin: 1rem auto;
+  cursor: pointer;
 }
 .OverallResultXP {
   font-weight: 500;

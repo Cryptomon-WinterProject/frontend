@@ -40,12 +40,15 @@
 }
 .OpponentCardDetailsLeft {
   width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .OpponentDetailsHeading {
   font-weight: 600;
   font-size: var(--font-16);
   text-transform: uppercase;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.4rem;
 }
 .UpperWrapper {
   width: 15rem;
@@ -79,6 +82,7 @@
   z-index: 4;
   color: var(--white);
   font-weight: 500;
+  font-size: var(--font-14);
 }
 .ParaName {
   font-style: normal;

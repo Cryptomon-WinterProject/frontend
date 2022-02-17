@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./UpperSection.module.css";
-
+ 
 import Logo from "../../../Assets/General/Logo.svg";
 import ProfilePic from "../../../Assets/General/ProfilePic.png";
 import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
