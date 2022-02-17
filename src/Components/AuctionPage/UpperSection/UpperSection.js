@@ -5,7 +5,7 @@ import { ReactComponent as PlusIcon } from "../../../Assets/General/Plus.svg";
 import Button from "../../Button";
 import SwitchButton from "../../SwitchButton";
 import { useDispatch } from "react-redux";
-import AddAuction from "../../PopUp/AddAuction";
+import AddAuction from "../../Popup/AddAuction";
 
 function UpperSection() {
   const dispatch = useDispatch();
