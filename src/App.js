@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from "react";
 import Web3 from "web3";
 import "./Utils/env";
 
+import "react-toastify/dist/ReactToastify.css";
+import styles from "./App.module.css";
+
 import { Switch, Route } from "react-router-dom";
 import { abi, address } from "./config";
 import LandingPage from "./Containers/LandingPage";
@@ -20,6 +23,7 @@ import PopUp from "./Components/PopUp";
 import socketIo from "socket.io-client";
 import { SOCKET_URL } from "./Utils/constants";
 import { acceptChallenge } from "./Services/battle.service";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const socket = useRef();
@@ -129,6 +133,7 @@ const App = () => {
 
   return (
     <>
+      <ToastContainer bodyClassName={styles.ToastBody} />
       <Switch>
         <Route exact path="/home">
           <LandingPage />
