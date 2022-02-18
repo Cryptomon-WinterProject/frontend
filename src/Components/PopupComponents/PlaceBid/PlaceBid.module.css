@@ -1,28 +1,35 @@
 .PopupBg {
   background-color: white;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   width: 100%;
 }
 .MainWrapper {
-  height: 60rem;
   width: 40rem;
   margin: auto;
   border: 1px solid black;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 .Header {
-  width: 100%;
-  padding: 0 2rem;
-  position: absolute;
-  top: 1.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  padding: 1.5rem 2.5rem 1rem;
+  border-bottom: 2px solid var(--sec-grey);
+  margin-bottom: 2.2rem;
+}
+.Heading {
+  composes: Heading from "../ChallengePlayer/ChallengePlayer.module.css";
+}
+.YellowPrimary {
+  color: var(--yellow-primary);
+}
+.BlackPrimary {
+  color: var(--sec-black);
 }
 .logo {
   height: 1.5rem;
@@ -32,9 +39,9 @@
   cursor: pointer;
 }
 .PokeImg {
-  width: 100%;
-  border-top-right-radius: 2rem;
-  border-top-left-radius: 2rem;
+  height: 27rem;
+  display: block;
+  margin: 0 auto;
 }
 .DescriptionWrapper {
   width: 100%;
@@ -50,6 +57,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .ProgressBarBorder {
   margin-left: 1.6rem;
@@ -79,7 +87,7 @@
 }
 .MonLevel {
   position: absolute;
-  font-size: var(--font-10);
+  font-size: var(--font-13);
   margin-bottom: 0.2rem;
   font-weight: 600;
   color: var(--white);
@@ -90,9 +98,8 @@
   align-items: center;
 }
 .Name {
-  font-family: Venti CF;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
@@ -101,6 +108,7 @@
 .Profile {
   display: flex;
   margin-left: 2rem;
+  align-items: center;
 }
 .ProfilePic {
   height: 1.9rem;
@@ -110,21 +118,23 @@
   margin-right: 0.8rem;
 }
 .Owner {
-  font-size: 12px;
+  font-size: 14px;
   color: grey;
-  font-weight: bold;
+  font-weight: 500;
 }
 .ButtonContainer {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .Button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 47%;
+  width: 45%;
   height: 60px;
   font-style: normal;
   font-weight: 400;
@@ -144,6 +154,7 @@
 .Amount {
   text-transform: uppercase;
   font-size: 1.1rem;
+  margin: 1rem 0;
 }
 .moncoin {
   height: 17px;
@@ -152,8 +163,6 @@
 }
 .BidContainer {
   display: flex;
-  width: 50%;
-  justify-content: space-between;
   align-items: center;
   font-size: 13px;
   font-style: normal;
@@ -161,6 +170,10 @@
   text-transform: uppercase;
 }
 .BidButton {
+  display: flex;
+  align-items: center;
+}
+.BidButton input {
   border: 1px solid #888888;
   border-radius: 4rem;
   width: 8rem;
@@ -169,7 +182,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 1rem;
+  outline: none;
+  margin-left: 1.15rem;
 }
+
 .Button2 {
   width: 90%;
   cursor: pointer;
@@ -185,6 +202,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
+  background-color: var(--white);
+  transition: all 0.15s ease-in-out;
+}
+.Button2:hover {
+  background-color: var(--yellow-primary);
+  color: var(--white);
 }
 .bold {
   font-weight: 800;
@@ -205,7 +229,6 @@
   width: 13rem;
 }
 .Rating {
-  font-family: Venti CF;
   font-style: normal;
   font-size: 1.2rem;
   font-weight: 550;

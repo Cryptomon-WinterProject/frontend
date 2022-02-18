@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "./PlaceBid.module.css";
 import logo from "../../../Assets/PlaceBid/logo.svg";
-import cross from "../../../Assets/PlaceBid/cross.svg";
+import cross from "../../../Assets/General/Cross.svg";
 import poke from "../../../Assets/PlaceBid/poke.svg";
 import moncoin from "../../../Assets/PlaceBid/moncoin.svg";
 import StarLevel from "../../../Assets/PlaceBid/StarLevel.svg";
@@ -29,20 +29,22 @@ function PlaceBid({ cardData }) {
   return (
     <form onSubmit={handleSubmit} className={styles.PopupBg}>
       <div className={styles.MainWrapper}>
-        <div className={styles.ImageWrapper}>
-          <img src={cardData.monImageUrl} alt="" className={styles.PokeImg} />
-        </div>
-
         <div className={styles.Header}>
-          <img src={logo} alt="" className={styles.logo}></img>
+          <div className={styles.Heading}>
+            <span className={styles.YellowPrimary}>Place Bid</span>{" "}
+            <span className={styles.BlackPrimary}>Result</span>
+          </div>
           <img
             src={cross}
-            alt=""
+            alt="cross"
             className={styles.cross}
             onClick={() => {
               dispatch({ type: "HANDLE_POPUP_OPEN", popupOpen: false });
             }}
           ></img>
+        </div>
+        <div className={styles.ImageWrapper}>
+          <img src={cardData.monImageUrl} alt="" className={styles.PokeImg} />
         </div>
 
         <div className={styles.DescriptionWrapper}>
@@ -51,7 +53,7 @@ function PlaceBid({ cardData }) {
             <div className={styles.Profile}>
               <img
                 src={cardData.ownerImageUrl}
-                alt=""
+                alt="profile"
                 className={styles.ProfilePic}
               ></img>
               <div className={styles.Owner}>{cardData.ownerName}</div>
@@ -85,7 +87,7 @@ function PlaceBid({ cardData }) {
               <div className={styles.ButtonHead}>Bid Starts From</div>
               <div className={styles.ButtonBody}>
                 <span className={styles.bold}>{cardData.minAmount}</span>
-                <img src={moncoin} alt="" className={styles.moncoin} />
+                <img src={moncoin} alt="moncoin" className={styles.moncoin} />
               </div>
             </div>
 
@@ -93,7 +95,7 @@ function PlaceBid({ cardData }) {
               <div className={styles.ButtonHead}>Highest Bid</div>
               <div className={styles.ButtonBody}>
                 <span className={styles.bold}>{cardData.highestBid}</span>
-                <img src={moncoin} alt="" className={styles.moncoin} />
+                <img src={moncoin} alt="moncoin" className={styles.moncoin} />
               </div>
             </div>
           </div>
@@ -113,7 +115,7 @@ function PlaceBid({ cardData }) {
           <button className={styles.Button2}>
             Place Bid and Pay{" "}
             <span className={styles.bold}>{bidAmount ? bidAmount : 0}</span>
-            <img src={moncoin} alt="" className={styles.moncoin} />
+            <img src={moncoin} alt="moncoin" className={styles.moncoin} />
           </button>
         </div>
       </div>
