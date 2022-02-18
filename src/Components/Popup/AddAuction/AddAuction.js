@@ -32,6 +32,10 @@ function AddAuction() {
         className={styles.MyCryptomonListWrapper}
         key={index}
         onClick={() => {
+          if (cryptomonSelected === index) {
+            setCryptomonSelected();
+            return;
+          }
           setCryptomonSelected(index);
         }}
       >
