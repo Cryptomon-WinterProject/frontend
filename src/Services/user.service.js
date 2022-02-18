@@ -53,3 +53,14 @@ export const getUserData = async (contract, account) => {
     throw err;
   }
 };
+
+export const addBalance = async (contract, account, amount) => {
+  try {
+    const receipt = await contract.methods
+      .buyMonCoins()
+      .send({ from: account, value: amount });
+    return receipt;
+  } catch (err) {
+    throw err;
+  }
+};
