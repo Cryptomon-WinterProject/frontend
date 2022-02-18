@@ -1,13 +1,13 @@
 .CryptomonCardWrapper {
-  height: 49.6rem;
-  width: 24rem;
+  width: 27rem;
   border: 1px solid var(--ter-black);
   border-radius: 8px;
+  padding: 2rem 0;
 }
 .MonProfile {
-  width: 100%;
   height: 25rem;
-  border-radius: 8px 8px 0px 0px;
+  display: block;
+  margin: auto;
 }
 .MonName {
   text-transform: uppercase;
@@ -23,8 +23,8 @@
   align-items: center;
 }
 .ProgressBarBorder {
-  margin-left: 1.6rem;
-  margin-top: 1rem;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
   width: 16rem;
   height: 0.8rem;
   border-radius: 13px;
@@ -37,7 +37,7 @@
 }
 .MonXP {
   margin-left: 1.6rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   font-size: var(--font-13);
   font-weight: 500;
 }
@@ -50,7 +50,7 @@
 }
 .MonLevel {
   position: absolute;
-  font-size: var(--font-10);
+  font-size: var(--font-13);
   margin-bottom: 0.2rem;
   font-weight: 600;
   color: var(--white);
@@ -59,12 +59,16 @@
   display: flex;
   justify-content: flex-start;
 }
+.BidBoxContentWrapper {
+  display: flex;
+  align-items: center;
+}
 .BidBoxLeftWrapper {
   width: 50%;
   justify-content: space-between;
   align-items: left;
   position: relative;
-  margin-left: 1.6rem;
+  margin-left: 1.5rem;
   margin-top: 1.8rem;
   border: 1px solid var(--green-primary);
   border-radius: 4px;
@@ -72,35 +76,28 @@
   background-color: var(--green-background);
 }
 .BidBoxLeftContent {
-  position: absolute;
   font-weight: 500;
   text-transform: uppercase;
   font-size: var(--font-14);
   padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-bottom: 3rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 .BidBoxLeftNumber {
-  position: absolute;
   font-weight: 800;
-  font-size: var(--font-13);
-  padding-top: 5.8rem;
-  padding-left: 0.5rem;
+  font-size: var(--font-14);
+  padding-left: 1rem;
+  padding-right: 0.5rem;
 }
 .BidBoxLeftImage {
-  position: absolute;
   height: 1.6rem;
   width: 1.6rem;
-  margin-top: 6rem;
-  margin-left: 2.5rem;
 }
 .BidBoxRightWrapper {
   width: 50%;
   justify-content: space-between;
-  align-items: right;
-  position: relative;
   margin-top: 1.8rem;
-  margin-right: 1.6rem;
+  margin-right: 1.5rem;
   margin-left: 1rem;
   border: 1px solid var(--green-primary);
   border-radius: 4px;
@@ -108,27 +105,22 @@
   background-color: var(--green-background);
 }
 .BidBoxRightContent {
-  position: absolute;
   font-weight: 500;
+  padding-left: 1rem;
   text-transform: uppercase;
   font-size: var(--font-14);
   padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .BidBoxRightNumber {
-  position: absolute;
   font-weight: 800;
-  font-size: var(--font-13);
-  padding-top: 5.8rem;
-  padding-left: 0.5rem;
+  font-size: var(--font-14);
+  padding-left: 1rem;
+  padding-right: 0.5rem;
 }
 .BidBoxRightImage {
-  position: absolute;
   height: 1.6rem;
   width: 1.6rem;
-  margin-top: 6rem;
-  margin-left: 2.5rem;
 }
 .BidButton {
   text-transform: uppercase;
@@ -136,12 +128,19 @@
   margin-top: 1.2rem;
   color: var(--yellow-primary);
   background-color: white;
-  width: 20.6rem;
+  width: 23.6rem;
   height: 3.6rem;
-  margin-left: 1.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   border-radius: 4px;
   font-size: var(--font-14);
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.BidButton:hover {
+  background-color: var(--yellow-primary);
+  color: white;
 }
 @media only screen and (max-width: 375px) {
   .CryptomonCardWrapper {

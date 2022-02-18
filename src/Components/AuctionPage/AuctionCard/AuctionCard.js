@@ -41,21 +41,25 @@ function AuctionCard({ cardData }) {
       <div className={styles.BidBoxWrapper}>
         <div className={styles.BidBoxLeftWrapper}>
           <p className={styles.BidBoxLeftContent}>Bid starts from </p>
-          <p className={styles.BidBoxLeftNumber}>{cardData.minAmount}</p>
-          <img
-            src={MonCoin}
-            className={styles.BidBoxLeftImage}
-            alt="Mon Coin"
-          />
+          <div className={styles.BidBoxContentWrapper}>
+            <p className={styles.BidBoxLeftNumber}>{cardData.minAmount}</p>
+            <img
+              src={MonCoin}
+              className={styles.BidBoxLeftImage}
+              alt="Mon Coin"
+            />
+          </div>
         </div>
         <div className={styles.BidBoxRightWrapper}>
           <p className={styles.BidBoxRightContent}>Highest bid of</p>
-          <p className={styles.BidBoxRightNumber}>{cardData.highestBid}</p>
-          <img
-            src={MonCoin}
-            className={styles.BidBoxRightImage}
-            alt="Mon Coin"
-          />
+          <div className={styles.BidBoxContentWrapper}>
+            <p className={styles.BidBoxRightNumber}>{cardData.highestBid}</p>
+            <img
+              src={MonCoin}
+              className={styles.BidBoxRightImage}
+              alt="Mon Coin"
+            />
+          </div>
         </div>
       </div>
       <button
