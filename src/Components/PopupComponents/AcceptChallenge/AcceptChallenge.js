@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ChallengePlayer.module.css";
+import styles from "./AcceptChallenge.module.css";
 import cancelButton from "../../../Assets/General/Cross.svg";
 import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import data from "../../BattlePage/staticData";
-import PokemonCards from "./../../BattlePage/RightContainer/PokemonCards";
+import PokemonCards from "../../BattlePage/RightContainer/PokemonCards";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserCards } from "../../../Services/user.service";
+import { getmonCardsDataByIds } from "../../../Services/user.service";
 import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime";
-import ChallengeResult from "../ChallengeResult/ChallengeResult";
-import { challangePlayer } from "../../../Services/battle.service";
-import notify from "./../../../Utils/helper/notifyToast";
+import { acceptChallenge } from "../../../Services/battle.service";
 import { HANDLE_POPUP_OPEN } from "./../../../Redux/ActionTypes";
+import notify from "./../../../Utils/helper/notifyToast";
 
-function ChallengePlayer({ opponentData }) {
+function AcceptChallenge({ opponentData, battlingMonIds }) {
   const [cryptomonSelected, setCryptomonSelected] = useState([]);
   const [opponentCryptomons, setOpponentCryptomons] = useState([]);
 
@@ -23,9 +22,9 @@ function ChallengePlayer({ opponentData }) {
 
   useEffect(async () => {
     if (opponentData.address && contract) {
-      const opponentCryptomonCards = await getUserCards(
+      const opponentCryptomonCards = await getmonCardsDataByIds(
         contract,
-        opponentData.address
+        battlingMonIds
       );
       setOpponentCryptomons(opponentCryptomonCards);
     }
@@ -40,13 +39,16 @@ function ChallengePlayer({ opponentData }) {
         for (let i = 0; i < cryptomonSelected.length; i++) {
           monIds[i] = myMonCards[cryptomonSelected[i]].monId;
         }
-        console.log(contract, account, monIds, opponentData.address);
-        await challangePlayer(contract, account, monIds, opponentData.address);
-        notify(`Challenged ${opponentData.name} successfully`, "success");
+        console.log(contract, account, opponentData.address, monIds);
+        await acceptChallenge(contract, account, opponentData.address, monIds);
         dispatch({
           type: HANDLE_POPUP_OPEN,
           popupOpen: false,
         });
+        notify(
+          `Accepted challenge from ${opponentData.name} successfully`,
+          "success"
+        );
       } catch (err) {
         console.log(err);
         notify(err.message, "error");
@@ -120,8 +122,8 @@ function ChallengePlayer({ opponentData }) {
     <form className={styles.Wrapper} onSubmit={handleSubmit}>
       <div className={styles.HeadingWrapper}>
         <div className={styles.Heading}>
-          <span className={styles.YellowPrimary}>Challenge</span>{" "}
-          <span className={styles.BlackPrimary}>Player</span>
+          <span className={styles.YellowPrimary}>Accept</span>{" "}
+          <span className={styles.BlackPrimary}>Challenge</span>
         </div>
         <img
           src={cancelButton}
@@ -166,8 +168,8 @@ function ChallengePlayer({ opponentData }) {
           </div>
           <div className={styles.OpponentCardDetailsRight}>
             <div className={styles.OpponentDetailsHeading}>
-              <span className={styles.YellowPrimary}>Opponent</span>{" "}
-              <span className={styles.BlackPrimary}>Cryptomon</span>
+              <span className={styles.YellowPrimary}>Battling</span>{" "}
+              <span className={styles.BlackPrimary}>Cryptomons</span>
             </div>
             <div className={styles.OpponentCryptomonList}>
               {opponentCryptomonList}
@@ -181,10 +183,12 @@ function ChallengePlayer({ opponentData }) {
           <span className={styles.BlackPrimary}>Battling Cryptomon</span>
         </div>
         <div className={styles.OpponentCryptomonList2}>{myCryptomonList}</div>
-        <button className={styles.LowerWrapperWrapperButton}>Challenge</button>
+        <button className={styles.LowerWrapperWrapperButton}>
+          Accept Challenge
+        </button>
       </div>
     </form>
   );
 }
 
-export default ChallengePlayer;
+export default AcceptChallenge;

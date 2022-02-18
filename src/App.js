@@ -22,8 +22,15 @@ import { getStoreCards } from "./Services/store.service";
 import PopUp from "./Components/PopUp";
 import socketIo from "socket.io-client";
 import { SOCKET_URL } from "./Utils/constants";
-import { acceptChallenge } from "./Services/battle.service";
+import { checkChallangeStatus, getPlayerData } from "./Services/battle.service";
 import { ToastContainer } from "react-toastify";
+import notify from "./Utils/helper/notifyToast";
+import AcceptChallenge from "./Components/PopupComponents/AcceptChallenge/index";
+import {
+  HANDLE_POPUP_COMPONENT_RENDER,
+  HANDLE_POPUP_OPEN,
+} from "./Redux/ActionTypes";
+import { soliditySha3 } from "web3-utils";
 
 const App = () => {
   const socket = useRef();
@@ -93,20 +100,44 @@ const App = () => {
       const monCards = await getUserCards(contract, account);
       const storeCards = await getStoreCards(contract, account);
 
-      contract.events.NewChallenge(async (error, event) => {
+      contract.events.NewChallenge({ fromBlock: 0 }, async (error, event) => {
         if (error) {
           console.log("error:", error);
         } else {
-          const challanger = event.returnValues._challenger;
           const opponent = event.returnValues._opponent;
+          const challanger = event.returnValues._challenger;
 
-          if (opponent === account) {
-            const acceptChallange = await acceptChallenge(
-              contract,
-              account,
-              challanger,
-              [7, 5, 6]
-            );
+          const challangeHash = soliditySha3(
+            { type: "address", value: challanger },
+            { type: "address", value: opponent }
+          );
+
+          const challengeStatus = await checkChallangeStatus(
+            contract,
+            account,
+            challangeHash
+          );
+          console.log("challengeStatus:", challengeStatus);
+
+          if (parseInt(challengeStatus) === 1 && opponent === account) {
+            const battlingMonIds = event.returnValues._monIds;
+            const challangerData = await getPlayerData(contract, challanger);
+
+            notify(`You have a challenge from ${challangerData.name}`);
+
+            dispatch({
+              type: HANDLE_POPUP_OPEN,
+              popupOpen: true,
+            });
+            dispatch({
+              type: HANDLE_POPUP_COMPONENT_RENDER,
+              popupComponent: (
+                <AcceptChallenge
+                  opponentData={challangerData}
+                  battlingMonIds={battlingMonIds}
+                />
+              ),
+            });
           }
         }
       });

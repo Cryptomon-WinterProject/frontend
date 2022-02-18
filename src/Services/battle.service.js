@@ -53,3 +53,18 @@ export const acceptChallenge = async (
     throw err;
   }
 };
+
+export const checkChallangeStatus = async (
+  contract,
+  account,
+  challengerAddress
+) => {
+  try {
+    const challengeStatus = await contract.methods
+      .challengeStatus(challengerAddress)
+      .call({ from: account });
+    return challengeStatus;
+  } catch (err) {
+    throw err;
+  }
+};
