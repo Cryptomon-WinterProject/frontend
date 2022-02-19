@@ -26,27 +26,29 @@ function OnlinePlayerCard({ playerAddress, handleClick }) {
       {loading ? (
         <CustomPreloader />
       ) : (
-        <div className={styles.ChallengeCardWrapper}>
-          <div className={styles.UpperWrapper}>
-            <img
-              src={playerData.profilePictureURL}
-              alt="challenge"
-              className={styles.chalProfile}
-            />
-            <div className={styles.MonLevelXPWrapper2}>
+        playerData.availableForChallenge && (
+          <div className={styles.ChallengeCardWrapper}>
+            <div className={styles.UpperWrapper}>
               <img
-                src={starLevel}
-                alt="star-level"
-                className={styles.StarLevel}
+                src={playerData.profilePictureURL}
+                alt="challenge"
+                className={styles.chalProfile}
               />
-              <p className={styles.MonLevel}>{playerData.level}</p>
+              <div className={styles.MonLevelXPWrapper2}>
+                <img
+                  src={starLevel}
+                  alt="star-level"
+                  className={styles.StarLevel}
+                />
+                <p className={styles.MonLevel}>{playerData.level}</p>
+              </div>
+            </div>
+            <div className={styles.LowerContainerWrapper2}>
+              <p className={styles.chalName}>{playerData.name}</p>
+              <button onClick={() => handleClick(playerData)}>Challenge</button>
             </div>
           </div>
-          <div className={styles.LowerContainerWrapper2}>
-            <p className={styles.chalName}>{playerData.name}</p>
-            <button onClick={() => handleClick(playerData)}>Challenge</button>
-          </div>
-        </div>
+        )
       )}
     </>
   );
