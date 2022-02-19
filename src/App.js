@@ -194,6 +194,8 @@ const App = () => {
   useEffect(() => {
     if (account) {
       setUserData();
+    } else {
+      setIsInitalized(true);
     }
   }, [account]);
 
