@@ -186,8 +186,6 @@ const App = () => {
       });
 
       socket.emit("login", { address: account });
-
-      setIsInitalized(true);
     } else {
       setIsInitalized(true);
     }
@@ -197,6 +195,12 @@ const App = () => {
       setUserData();
     }
   }, [account]);
+
+  useEffect(() => {
+    if (userDetails) {
+      setIsInitalized(true);
+    }
+  }, [userDetails]);
 
   return (
     <>
@@ -218,23 +222,24 @@ const App = () => {
                 <Route exact path="/auction">
                   <AuctionPage />
                 </Route>
-
                 <Route exact path="/training">
                   <Training />
                 </Route>
                 <Route exact path="/bid">
                   <PlaceBid />
                 </Route>
-                <Route>
-                  <Redirect to="/home" />
-                </Route>
+                <Route
+                  exact
+                  path="*"
+                  render={() => <Redirect to={{ pathname: "/home" }} />}
+                />
               </>
             ) : (
               <>
                 <Route exact path="/">
                   <SignUp setIsInitalized={setIsInitalized} />
                 </Route>
-                <Route>
+                <Route path="/*">
                   <Redirect to="/" />
                 </Route>
               </>

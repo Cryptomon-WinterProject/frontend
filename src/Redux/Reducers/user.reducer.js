@@ -6,7 +6,7 @@ import {
 
 export const userReducer = (
   state = {
-    userDetails: {},
+    userDetails: null,
     monCards: [],
     storeCards: [],
   },
