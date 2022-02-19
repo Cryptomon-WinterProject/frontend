@@ -10,6 +10,7 @@ import PokemonCards from "./PokemonCards";
 import { calculateReadyTime } from "../../../Utils/helper/calculateReadyTime.js";
 import OnlinePlayerCard from "./OnlinePlayerCard/OnlinePlayerCard";
 import { getOnlinePlayers } from "../../../Services/battle.service";
+import CustomPreloader from "../../PreLoader/CustomPreloader";
 
 function RightContainer() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function RightContainer() {
   const contract = useSelector((state) => state.contractReducer.contract);
   const account = useSelector((state) => state.contractReducer.account);
   const [onlinePlayers, setOnlinePlayers] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     if (account) {
@@ -41,6 +42,7 @@ function RightContainer() {
           }
         }
       });
+      setLoading(false);
     }
   }, [account]);
 
@@ -92,7 +94,9 @@ function RightContainer() {
       </div>
       <div className={styles.Wrapper}>
         <h2 className={styles.Heading}>{data.heading[1]}</h2>
-        <div className={styles.ChallengeList}>{challengeArrList}</div>
+        <div className={styles.ChallengeList}>
+          {loading ? <CustomPreloader /> : challengeArrList}
+        </div>
       </div>
     </div>
   );

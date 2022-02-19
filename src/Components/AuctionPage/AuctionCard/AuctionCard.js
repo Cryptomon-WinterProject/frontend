@@ -62,24 +62,36 @@ function AuctionCard({ cardData }) {
           </div>
         </div>
       </div>
-      <button
-        className={styles.BidButton}
-        onClick={() => {
-          if (cardData.owner === account) {
-            return;
-          }
-          dispatch({
-            type: "HANDLE_POPUP_COMPONENT_RENDER",
-            popupComponent: <PlaceBid cardData={cardData} />,
-          });
-          dispatch({
-            type: "HANDLE_POPUP_OPEN",
-            popupOpen: true,
-          });
-        }}
-      >
-        place bid
-      </button>
+      {cardData.owner !== account ? (
+        <button
+          className={styles.BidButton}
+          onClick={() => {
+            if (cardData.owner === account) {
+              return;
+            }
+            dispatch({
+              type: "HANDLE_POPUP_COMPONENT_RENDER",
+              popupComponent: <PlaceBid cardData={cardData} />,
+            });
+            dispatch({
+              type: "HANDLE_POPUP_OPEN",
+              popupOpen: true,
+            });
+          }}
+        >
+          place bid
+        </button>
+      ) : (
+        <button
+          className={styles.BidButtonDisabled}
+          disabled
+          style={{
+            cursor: "not-allowed",
+          }}
+        >
+          Your Card
+        </button>
+      )}
     </div>
   );
 }
