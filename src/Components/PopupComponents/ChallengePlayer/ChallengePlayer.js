@@ -11,11 +11,12 @@ import ChallengeResult from "../ChallengeResult/ChallengeResult";
 import { challangePlayer } from "../../../Services/battle.service";
 import notify from "./../../../Utils/helper/notifyToast";
 import { HANDLE_POPUP_OPEN } from "./../../../Redux/ActionTypes";
+import CustomPreloader from "../../PreLoader/CustomPreloader";
 
 function ChallengePlayer({ opponentData }) {
   const [cryptomonSelected, setCryptomonSelected] = useState([]);
   const [opponentCryptomons, setOpponentCryptomons] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const myMonCards = useSelector((state) => state.userReducer.monCards);
   const contract = useSelector((state) => state.contractReducer.contract);
   const account = useSelector((state) => state.contractReducer.account);
@@ -30,6 +31,7 @@ function ChallengePlayer({ opponentData }) {
         opponentData.address
       );
       setOpponentCryptomons(opponentCryptomonCards);
+      setLoading(false);
     }
   }, [opponentData]);
 
@@ -170,7 +172,7 @@ function ChallengePlayer({ opponentData }) {
               <span className={styles.BlackPrimary}>Cryptomon</span>
             </div>
             <div className={styles.OpponentCryptomonList}>
-              {opponentCryptomonList}
+              {loading ? <CustomPreloader /> : opponentCryptomonList}
             </div>
           </div>
         </div>

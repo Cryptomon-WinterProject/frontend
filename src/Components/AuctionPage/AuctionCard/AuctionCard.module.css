@@ -122,7 +122,8 @@
   height: 1.6rem;
   width: 1.6rem;
 }
-.BidButton {
+.BidButton,
+.BidButtonDisabled {
   text-transform: uppercase;
   border: 1px solid var(--yellow-primary);
   margin-top: 1.2rem;
