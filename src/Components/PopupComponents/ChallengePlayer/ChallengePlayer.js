@@ -22,6 +22,8 @@ function ChallengePlayer({ opponentData }) {
   const dispatch = useDispatch();
 
   useEffect(async () => {
+    setCryptomonSelected([]);
+    setOpponentCryptomons([]);
     if (opponentData.address && contract) {
       const opponentCryptomonCards = await getUserCards(
         contract,
@@ -40,7 +42,6 @@ function ChallengePlayer({ opponentData }) {
         for (let i = 0; i < cryptomonSelected.length; i++) {
           monIds[i] = myMonCards[cryptomonSelected[i]].monId;
         }
-        console.log(contract, account, monIds, opponentData.address);
         await challangePlayer(contract, account, monIds, opponentData.address);
         notify(`Challenged ${opponentData.name} successfully`, "success");
         dispatch({
@@ -72,7 +73,6 @@ function ChallengePlayer({ opponentData }) {
   });
 
   const myCryptomonList = myMonCards.map((cryptomon, index) => {
-    console.log(cryptomon);
     if (calculateReadyTime(cryptomon.readyTime) > 0) {
       return;
     }

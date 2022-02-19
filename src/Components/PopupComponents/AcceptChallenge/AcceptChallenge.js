@@ -21,6 +21,8 @@ function AcceptChallenge({ opponentData, battlingMonIds }) {
   const dispatch = useDispatch();
 
   useEffect(async () => {
+    setCryptomonSelected([]);
+    setOpponentCryptomons([]);
     if (opponentData.address && contract) {
       const opponentCryptomonCards = await getmonCardsDataByIds(
         contract,
@@ -39,7 +41,6 @@ function AcceptChallenge({ opponentData, battlingMonIds }) {
         for (let i = 0; i < cryptomonSelected.length; i++) {
           monIds[i] = myMonCards[cryptomonSelected[i]].monId;
         }
-        console.log(contract, account, opponentData.address, monIds);
         await acceptChallenge(contract, account, opponentData.address, monIds);
         dispatch({
           type: HANDLE_POPUP_OPEN,
@@ -74,7 +75,6 @@ function AcceptChallenge({ opponentData, battlingMonIds }) {
   });
 
   const myCryptomonList = myMonCards.map((cryptomon, index) => {
-    console.log(cryptomon);
     if (calculateReadyTime(cryptomon.readyTime) > 0) {
       return;
     }

@@ -1,4 +1,8 @@
-import { getUserData } from "./user.service";
+import {
+  getMonCardDataById,
+  getmonCardsDataByIds,
+  getUserData,
+} from "./user.service";
 
 export const getPlayerData = async (contract, account) => {
   try {
@@ -64,6 +68,28 @@ export const checkChallangeStatus = async (
       .challengeStatus(challengerAddress)
       .call({ from: account });
     return challengeStatus;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getBalltingMonsData = async (contract, account, challengeHash) => {
+  try {
+    const battlingMonIds = await contract.methods
+      .getMonsInBattle(challengeHash)
+      .call({ from: account });
+
+    const dataToReturn = {
+      challengerMons: await getmonCardsDataByIds(
+        contract,
+        battlingMonIds.challengerMons
+      ),
+      opponentMons: await getmonCardsDataByIds(
+        contract,
+        battlingMonIds.opponentMons
+      ),
+    };
+    return dataToReturn;
   } catch (err) {
     throw err;
   }
