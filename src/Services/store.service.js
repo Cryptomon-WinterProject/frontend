@@ -16,17 +16,16 @@ export const getStoreCards = async (contract, account) => {
     }
     return dataToReturn;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
 export const buyMonCard = async (contract, account, monIndex, amount) => {
   try {
-    const receipt = await contract.methods
+    await contract.methods
       .buyCryptomons(monIndex, amount)
       .send({ from: account });
-    return receipt;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };

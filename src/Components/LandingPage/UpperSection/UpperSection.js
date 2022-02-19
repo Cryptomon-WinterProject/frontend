@@ -2,25 +2,20 @@ import React from "react";
 import styles from "./UpperSection.module.css";
 
 import Logo from "../../../Assets/General/Logo.svg";
-import ProfilePic from "../../../Assets/General/ProfilePic.png";
 import StarLevel from "../../../Assets/LandingPage/StarLevel.svg";
 import MonCoinIcon from "../../../Assets/LandingPage/M-moncoin.svg";
 import Button from "../../Button";
 import { ReactComponent as PlusIcon } from "../../../Assets/General/Plus.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { calculatePlayerXP } from "../../../Utils/helper/calcPlayerXP";
-import { addBalance } from "../../../Services/user.service";
 import AddBalance from "./../../PopUp/AddBalance/index";
 
 function UpperSection() {
   const userData = useSelector((state) => state.userReducer.userDetails);
   const playerXP = calculatePlayerXP(userData.winCount, userData.level);
-  const contract = useSelector((state) => state.contractReducer.contract);
-  const account = useSelector((state) => state.contractReducer.account);
   const dispatch = useDispatch();
 
-  const handleAddBalance = async () => {
-    // await addBalance(contract, account, Math.pow(10, 14));
+  const handleClick = async () => {
     dispatch({
       type: "HANDLE_POPUP_COMPONENT_RENDER",
       popupComponent: <AddBalance />,
@@ -80,7 +75,7 @@ function UpperSection() {
               withIcon
               IconComp={PlusIcon}
               hoverBgColor="var(--white)"
-              onClick={handleAddBalance}
+              onClick={handleClick}
             />
           </div>
         </div>

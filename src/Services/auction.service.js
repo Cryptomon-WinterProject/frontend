@@ -7,14 +7,11 @@ export const addToAuction = async (
   minAmount
 ) => {
   try {
-    const receipt = await contract.methods
-      .addToAuction(cryptomonId, minAmount)
-      .send({
-        from: account,
-      });
-    console.log(receipt);
+    await contract.methods.addToAuction(cryptomonId, minAmount).send({
+      from: account,
+    });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -47,17 +44,16 @@ export const fetchAuctionCards = async (contract, account) => {
     }
     return dataToReturn;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
 export const bid = async (contract, account, auctionCardId, amount) => {
   try {
-    const receipt = await contract.methods.bid(auctionCardId, amount).send({
+    await contract.methods.bid(auctionCardId, amount).send({
       from: account,
     });
-    console.log(receipt);
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };

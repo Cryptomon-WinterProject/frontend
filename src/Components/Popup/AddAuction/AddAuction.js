@@ -23,42 +23,41 @@ function AddAuction() {
     await addToAuction(contract, account, cryptomonSelected, minAmount);
   };
 
-  const myCryptomonList = myMonCards.map((cryptomon, index) => {
-    if (calculateReadyTime(cryptomon.readyTime) > 0) {
-      return;
-    }
-    return (
-      <div
-        className={styles.MyCryptomonListWrapper}
-        key={index}
-        onClick={() => {
-          if (cryptomonSelected === index) {
-            setCryptomonSelected();
-            return;
-          }
-          setCryptomonSelected(index);
-        }}
-      >
+  const myCryptomonList = myMonCards
+    .filter((cryptomon) => calculateReadyTime(cryptomon.readyTime) <= 0)
+    .map((cryptomon, index) => {
+      return (
         <div
-          className={styles.MyCryptomonListSubWrapper}
-          style={
-            cryptomonSelected === index
-              ? { display: "flex" }
-              : { display: "none" }
-          }
-        >
-          <img src={selectedMark} alt="mark" />
-        </div>
-        <PokemonCards
+          className={styles.MyCryptomonListWrapper}
           key={index}
-          monProfile={cryptomon.monImageUrl}
-          monName={cryptomon.monName}
-          monLevel={cryptomon.monLevel}
-          starLevelProfile={starLevel}
-        />
-      </div>
-    );
-  });
+          onClick={() => {
+            if (cryptomonSelected === cryptomon.monId) {
+              setCryptomonSelected();
+              return;
+            }
+            setCryptomonSelected(cryptomon.monId);
+          }}
+        >
+          <div
+            className={styles.MyCryptomonListSubWrapper}
+            style={
+              cryptomonSelected === cryptomon.monId
+                ? { display: "flex" }
+                : { display: "none" }
+            }
+          >
+            <img src={selectedMark} alt="mark" />
+          </div>
+          <PokemonCards
+            key={index}
+            monProfile={cryptomon.monImageUrl}
+            monName={cryptomon.monName}
+            monLevel={cryptomon.monLevel}
+            starLevelProfile={starLevel}
+          />
+        </div>
+      );
+    });
   return (
     <form onSubmit={handleSubmit} className={styles.MainWrapper}>
       <div className={styles.PopupWrapper}>

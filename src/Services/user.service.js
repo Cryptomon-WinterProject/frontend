@@ -3,7 +3,7 @@ export const getMonCollection = async (contract, index) => {
     const monCollection = await contract.methods.getMonCollection(index).call();
     return monCollection;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -14,7 +14,7 @@ export const getUserCardIds = async (contract, account) => {
       .call({ from: account });
     return monCardIds;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -24,7 +24,7 @@ export const getUserCards = async (contract, account) => {
     const dataToReturn = await getmonCardsDataByIds(contract, monCardIds);
     return dataToReturn;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -33,18 +33,15 @@ export const getUserData = async (contract, account) => {
     const userData = await contract.methods.users(account).call();
     return userData;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
 export const addBalance = async (contract, account, amount) => {
   try {
-    const receipt = await contract.methods
-      .buyMonCoins()
-      .send({ from: account, value: amount });
-    return receipt;
+    await contract.methods.buyMonCoins().send({ from: account, value: amount });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -58,7 +55,7 @@ export const getmonCardsDataByIds = async (contract, monCardIds) => {
     }
     return dataToReturn;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -77,6 +74,6 @@ export const getMonCardDataById = async (contract, monCardId) => {
     localObj.trainingGainPerHour = monCollection.trainingGainPerHour;
     return localObj;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };

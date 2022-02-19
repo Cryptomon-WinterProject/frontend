@@ -11,7 +11,7 @@ export const getPlayerData = async (contract, account) => {
     localObj.address = account;
     return localObj;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -20,7 +20,7 @@ export const getOnlinePlayers = async (contract) => {
     const onlinePlayers = await contract.methods.getOnlinePlayers().call();
     return onlinePlayers;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -35,7 +35,7 @@ export const challangePlayer = async (
       .challenge(opponentAddress, monIDs)
       .send({ from: account });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -50,7 +50,7 @@ export const acceptChallenge = async (
       .acceptChallenge(challengerAddress, monIDs)
       .send({ from: account });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 
@@ -65,6 +65,6 @@ export const checkChallangeStatus = async (
       .call({ from: account });
     return challengeStatus;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };

@@ -12,6 +12,6 @@ export const uploadImage = async (images) => {
     });
     return data;
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };

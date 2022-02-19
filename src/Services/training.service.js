@@ -6,13 +6,10 @@ export const trainCryptomon = async (
   charge
 ) => {
   try {
-    const receipt = await contract.methods
-      .trainCryptomon(cryptomonId, duration, charge)
-      .send({
-        from: account,
-      });
-    console.log(receipt);
+    await contract.methods.trainCryptomon(cryptomonId, duration, charge).send({
+      from: account,
+    });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
