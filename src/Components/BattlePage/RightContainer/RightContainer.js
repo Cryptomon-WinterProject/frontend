@@ -12,39 +12,13 @@ import OnlinePlayerCard from "./OnlinePlayerCard/OnlinePlayerCard";
 import { getOnlinePlayers } from "../../../Services/battle.service";
 import CustomPreloader from "../../PreLoader/CustomPreloader";
 
-function RightContainer() {
+function RightContainer({ onlinePlayers }) {
   const dispatch = useDispatch();
   const monCards = useSelector((state) => state.userReducer.monCards);
   const contract = useSelector((state) => state.contractReducer.contract);
   const account = useSelector((state) => state.contractReducer.account);
-  const [onlinePlayers, setOnlinePlayers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async () => {
-    if (account) {
-      let localOnlinePlayers = await getOnlinePlayers(contract);
-      setOnlinePlayers(localOnlinePlayers);
-      contract.events.ChallengeReady(async (error, event) => {
-        if (error) {
-          console.log("error:", error);
-        } else {
-          if (event.returnValues._ready) {
-            localOnlinePlayers = [
-              ...localOnlinePlayers,
-              event.returnValues._player,
-            ];
-            setOnlinePlayers(localOnlinePlayers);
-          } else {
-            localOnlinePlayers = localOnlinePlayers.filter(
-              (player) => player !== event.returnValues._player
-            );
-            setOnlinePlayers(localOnlinePlayers);
-          }
-        }
-      });
-      setLoading(false);
-    }
-  }, [account]);
 
   const handleClick = (opponentData) => {
     dispatch({

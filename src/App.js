@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Web3 from "web3";
 import "./Utils/env";
@@ -30,13 +30,21 @@ import AcceptChallenge from "./Components/PopupComponents/AcceptChallenge/index"
 import {
   HANDLE_POPUP_COMPONENT_RENDER,
   HANDLE_POPUP_OPEN,
+  SET_CONTRACT_DETAILS,
+  SET_MON_CARDS,
+  SET_STORE_CARDS,
+  SET_USER_DETAILS,
 } from "./Redux/ActionTypes";
 import { soliditySha3 } from "web3-utils";
 import ChallengeResult from "./Components/PopupComponents/ChallengeResult/index";
+import { SocketContext } from "./socket";
+import { Redirect } from "react-router-dom";
 
 const App = () => {
   const history = useHistory();
-  const socket = useRef();
+  // const socket = useRef();
+  const socket = useContext(SocketContext);
+
   const activeChallenges = useRef([]);
   const componentToRender = useSelector(
     (state) => state.popupHandle.popupComponent
@@ -44,51 +52,35 @@ const App = () => {
   const popUpState = useSelector((state) => state.popupHandle.popupOpen);
   const contract = useSelector((state) => state.contractReducer.contract);
   const account = useSelector((state) => state.contractReducer.account);
+  const userDetails = useSelector((state) => state.userReducer.userDetails);
   const location = useLocation();
   const dispatch = useDispatch();
   const [isInitalized, setIsInitalized] = useState(false);
+  const [onlinePlayers, setOnlinePlayers] = useState([]);
 
   useEffect(() => {
-    socket.current = socketIo(SOCKET_URL, {
-      transports: ["websocket"],
+    socket.on("statusUpdate", async (players) => {
+      setOnlinePlayers(players);
     });
-
     async function load() {
       let appdataLocale = {};
 
       const web3 = new Web3(Web3.givenProvider);
       appdataLocale.account = (await web3.eth.requestAccounts())[0];
 
-      socket.current.emit("login", { address: appdataLocale.account });
-
       appdataLocale.contract = new web3.eth.Contract(abi, address);
 
-      // if (
-      //   appdataLocale.account == "0xC48E03A9e023b0b12173dAeE8E61e058062BC327"
-      // ) {
-      //   let receipt = await appdataLocale.contract.methods
-      //     .updateUserConnectivityStatus(
-      //       "0xBa6F2EeF6A9341Ede99F69b6B3adA5c4F234DE9f",
-      //       true
-      //     )
-      //     .send({ from: appdataLocale.account });
-      //   console.log(receipt);
-      // }
-
       dispatch({
-        type: "SET_CONTRACT_DETAILS",
+        type: SET_CONTRACT_DETAILS,
         data: appdataLocale,
       });
     }
 
     load();
-
     return () => {
-      // Disconnect socket
-
-      socket.current.close();
+      socket.off("statusUpdate");
     };
-  }, []);
+  }, [socket]);
 
   useEffect(() => {
     var curState =
@@ -179,23 +171,24 @@ const App = () => {
       });
 
       dispatch({
-        type: "SET_USER_DETAILS",
+        type: SET_USER_DETAILS,
         data: userDetails,
       });
 
       dispatch({
-        type: "SET_MON_CARDS",
+        type: SET_MON_CARDS,
         data: monCards,
       });
 
       dispatch({
-        type: "SET_STORE_CARDS",
+        type: SET_STORE_CARDS,
         data: storeCards,
       });
-      history.push("/home");
+
+      socket.emit("login", { address: account });
+
       setIsInitalized(true);
     } else {
-      history.push("/");
       setIsInitalized(true);
     }
   }
@@ -211,27 +204,41 @@ const App = () => {
       {isInitalized ? (
         <>
           <Switch>
-            <Route exact path="/home">
-              <LandingPage />
-            </Route>
-            <Route exact path="/battle">
-              <BattlePage />
-            </Route>
-            <Route exact path="/store">
-              <StorePage />
-            </Route>
-            <Route exact path="/auction">
-              <AuctionPage />
-            </Route>
-            <Route exact path="/">
-              <SignUp setIsInitalized={setIsInitalized} />
-            </Route>
-            <Route exact path="/training">
-              <Training />
-            </Route>
-            <Route exact path="/bid">
-              <PlaceBid />
-            </Route>
+            {userDetails.verified ? (
+              <>
+                <Route exact path="/home">
+                  <LandingPage />
+                </Route>
+                <Route exact path="/battle">
+                  <BattlePage onlinePlayers={onlinePlayers} />
+                </Route>
+                <Route exact path="/store">
+                  <StorePage />
+                </Route>
+                <Route exact path="/auction">
+                  <AuctionPage />
+                </Route>
+
+                <Route exact path="/training">
+                  <Training />
+                </Route>
+                <Route exact path="/bid">
+                  <PlaceBid />
+                </Route>
+                <Route>
+                  <Redirect to="/home" />
+                </Route>
+              </>
+            ) : (
+              <>
+                <Route exact path="/">
+                  <SignUp setIsInitalized={setIsInitalized} />
+                </Route>
+                <Route>
+                  <Redirect to="/" />
+                </Route>
+              </>
+            )}
           </Switch>
           <PopUp
             ContentComp={componentToRender}

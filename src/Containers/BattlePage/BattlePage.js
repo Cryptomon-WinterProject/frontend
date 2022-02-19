@@ -4,12 +4,12 @@ import Navbar from "../../Components/Navbar";
 import styles from "./BattlePage.module.css";
 import RightContainer from "./../../Components/BattlePage/RightContainer";
 
-function BattlePage() {
+function BattlePage({ onlinePlayers }) {
   return (
     <div className={styles.WrapperWrapper}>
       <Navbar />
       <div className={styles.Wrapper}>
-        <RightContainer />
+        <RightContainer onlinePlayers={onlinePlayers} />
       </div>
     </div>
   );
