@@ -2,7 +2,10 @@
   margin-left: 2.8rem;
   padding-top: 2.1rem;
 }
-
+.CryptomonLogo {
+  width: 12rem;
+  margin-bottom: 2rem;
+}
 .Heading {
   font-weight: bold;
   font-size: var(--font-20);
@@ -50,6 +53,7 @@
   z-index: 4;
   color: var(--white);
   font-weight: 500;
+  font-size: var(--font-14);
 }
 .MonName {
   font-weight: 600;
@@ -84,7 +88,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  margin-top: 2.2rem;
+  margin-top: 1.2rem;
 }
 .chalName {
   font-weight: 600;
@@ -101,6 +105,13 @@
   font-size: var(--font-14);
   text-transform: uppercase;
   color: var(--ter-black);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease-in-out;
+}
+.LowerContainerWrapper2 button:hover {
+  background: var(--ter-black);
+  color: var(--white);
 }
 .Wrapper {
   padding-top: 3.4rem;
