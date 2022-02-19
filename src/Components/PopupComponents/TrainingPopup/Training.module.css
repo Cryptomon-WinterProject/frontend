@@ -6,7 +6,7 @@
   width: 100%;
 }
 .MainWrapper {
-  background: white;
+  background: var(--white);
   overflow: hidden;
   height: 60rem;
   width: 47rem;
@@ -22,24 +22,28 @@
   width: 100%;
   padding: 0 2rem;
   position: absolute;
-  top: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  height: 7rem;
+  align-items: center;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.646)
+  );
 }
 .traingin_pokename {
   height: 1.5rem;
-  font-family: Venti CF;
-  font-style: normal;
-  font-weight: 800;
-  color: #ffcb05;
-  font-size: 2rem;
+  font-weight: 700;
+  color: var(--yellow-primary);
+  font-size: var(--font-20);
   line-height: 2rem;
   text-transform: uppercase;
 }
 
 .traingin_pokename > span {
-  color: white;
+  color: var(--white);
   padding-left: 0.7rem;
 }
 .cross {
@@ -47,8 +51,9 @@
   cursor: pointer;
 }
 .PokeImg {
-  width: 35rem;
-  height: 35rem;
+  margin-top: 5rem;
+  width: 30rem;
+  height: 30rem;
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
 }
@@ -56,48 +61,44 @@
   width: 100%;
   padding: 2rem;
   margin-top: -0.24rem;
-  background-color: white;
+  background-color: var(--white);
 }
 .duration {
-  font-family: Venti CF;
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--font-16);
   line-height: 19px;
   text-transform: uppercase;
-  color: #444444;
+  color: var(--sec-black);
 }
 
 .duration > span {
   padding-left: 1rem;
-  font-family: Venti CF;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: var(--font-16);
   line-height: 1.56rem;
   text-transform: uppercase;
-  color: #ffcb05;
+  color: var(--yellow-primary);
 }
 
 .rate {
-  font-family: Venti CF;
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--font-16);
   line-height: 19px;
   text-transform: uppercase;
-  color: #444444;
+  color: var(--sec-black);
 }
 
 .rate > span {
   padding-left: 1rem;
-  font-family: Venti CF;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: var(--font-16);
   line-height: 1.56rem;
   text-transform: uppercase;
-  color: #ffcb05;
+  color: var(--yellow-primary);
 }
 
 .duration_slider {
@@ -109,13 +110,12 @@
 }
 .rate > span > span {
   padding-left: 0.3rem;
-  font-family: Venti CF;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: var(--font-16);
   line-height: 1.56rem;
   text-transform: uppercase;
-  color: #0fb900;
+  color: var(--green-primary);
 }
 
 .paybtn {
@@ -123,8 +123,8 @@
   height: 44px;
   left: 23px;
   top: 534px;
-  background: #fbfffa;
-  border: 1px solid #0fb900;
+  background: var(--green-background);
+  border: 1px solid var(--green-primary);
   box-sizing: border-box;
   border-radius: 65px;
   margin-top: 1rem;
@@ -133,14 +133,13 @@
 
 .btn_content {
   display: flex;
-  flex-direction: row;
-  font-family: Venti CF;
   font-style: normal;
+  align-items: center;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: var(--font-15);
   line-height: 19px;
   text-transform: uppercase;
-  color: #0fb900;
+  color: var(--green-primary);
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -148,9 +147,9 @@
   padding-left: 1.2rem;
 }
 .btn_content > span {
-  color: #ffcb05;
+  color: var(--yellow-primary);
   padding-left: 0.4rem;
-  font-size: 1.8rem;
+  font-size: var(--font-18);
 }
 
 .moncoin {
