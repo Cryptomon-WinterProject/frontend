@@ -19,9 +19,11 @@ const LowerSection = () => {
     }
   }, [account]);
 
-  const auctionCardList = auctionCards.map((auctionCard, index) => {
-    return <AuctionCard key={index} cardData={auctionCard} />;
-  });
+  const auctionCardList = auctionCards
+    .filter((card) => card.isSold === false)
+    .map((auctionCard, index) => {
+      return <AuctionCard key={index} cardData={auctionCard} />;
+    });
 
   return (
     <div className={styles.LowerSectionWrapper}>
