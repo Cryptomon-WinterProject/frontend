@@ -110,15 +110,15 @@ const SignUp = ({ setIsInitalized }) => {
     const [file] = addImageInputRef.current.avatarFileInput.files;
     try {
       if (file) {
-        alert("Image Uploading Succesfully", "success");
+        notify("The Profile picture is being uploaded...", "info");
         let urls = await uploadImage(file);
         setImages(urls);
-        alert("Profile picture updated successfully", "success");
+        notify("Profile picture uploaded successfully", "success");
       }
     } catch (err) {
       console.log(err);
       console.log(err.response);
-      alert(err, "error");
+      notify(err, "error");
     }
   };
 
