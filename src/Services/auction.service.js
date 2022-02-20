@@ -18,6 +18,7 @@ export const addToAuction = async (
 export const fetchAuctionCards = async (contract, account) => {
   try {
     const auctionCards = await contract.methods.getAuctionCard().call();
+
     const dataToReturn = [];
     for (let i = 0; i < auctionCards.length; i++) {
       let localObj = {};
@@ -31,6 +32,7 @@ export const fetchAuctionCards = async (contract, account) => {
       const monCollection = await getMonCollection(contract, localObj.monIndex);
       const ownerData = await getUserData(contract, monCard.owner);
       const lastBid = await contract.methods.monCoinBid(account, i).call();
+      localObj.isSold = auctionCards[i].isSold;
       localObj.previousBid = lastBid;
       localObj.ownerName = ownerData.name;
       localObj.ownerImageUrl = ownerData.profilePictureURL;
