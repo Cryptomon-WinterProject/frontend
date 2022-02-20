@@ -16,6 +16,10 @@ As we hear a lot about blockchain and NFT's in every field, we are implementing 
 - A player can also Train their Cryptomons(In which they can increase the XP of the cryptomons at different Moncoins rates) to make them always win cards.
 - Player can also buy some crazy Cryptomons from Store.
 
+## Hosted URL
+
+https://cryptomon-iiitm.netlify.app/
+
 ## Development Setup
 
 ### Frontend
@@ -34,9 +38,40 @@ As we hear a lot about blockchain and NFT's in every field, we are implementing 
 - Open your Ganache account and link the account.
 - Enable MetaMask for Transcations.
 
-## Hosted URL
+## Demo
 
-https://cryptomon-iiitm.netlify.app/
+https://drive.google.com/file/d/1MY4sTesn01kohd_dsUrUFYJoknegp6v3/view
+
+## Screenshots
+
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset1.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset2.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset3.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset4.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset5.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset6.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset7.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset8.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset9.png)
+
+<br>
+![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset10.png)
 
 ## 🔗 Know the Project Creater
 
@@ -69,21 +104,3 @@ Raj Varsani
 
 [![portfolio](https://img.shields.io/badge/github_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/RajVarsani)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/varsani-raj/)
-
-## Screenshots
-
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset1.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset2.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset3.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset4.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset5.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset6.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset7.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset8.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset9.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset10.png)
-![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset11.png)
-
-## Demo
-
-https://drive.google.com/file/d/1MY4sTesn01kohd_dsUrUFYJoknegp6v3/view
