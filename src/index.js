@@ -10,15 +10,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { ConfigureStore } from "./Redux/ConfigureStore";
+import { SocketContext, socket } from "./socket";
 
 const store = ConfigureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
+      <SocketContext.Provider value={socket}>
+        <Router>
+          <App />
+        </Router>
+      </SocketContext.Provider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

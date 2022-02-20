@@ -30,7 +30,7 @@ const SignUp = ({ setIsInitalized }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (userDetails.name) {
+    if (userDetails?.name) {
       history.push("/home");
     }
   }, [userDetails]);
