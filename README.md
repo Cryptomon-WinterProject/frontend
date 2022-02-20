@@ -104,3 +104,7 @@ Raj Varsani
 
 [![portfolio](https://img.shields.io/badge/github_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/RajVarsani)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/varsani-raj/)
+
+## License
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
