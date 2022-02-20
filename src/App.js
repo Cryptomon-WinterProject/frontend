@@ -96,54 +96,61 @@ const App = () => {
     if (userDetails?.verified) {
       const monCards = await getUserCards(contract, account);
       const storeCards = await getStoreCards(contract, account);
+      const web3 = new Web3(Web3.givenProvider);
+      const blockNumber = await web3.eth.getBlockNumber();
+      contract.events.NewChallenge(
+        { fromBlock: blockNumber - 900 },
+        async (error, event) => {
+          if (error) {
+            console.log("error:", error);
+          } else {
+            const opponent = event.returnValues._opponent;
+            const challanger = event.returnValues._challenger;
 
-      contract.events.NewChallenge({ fromBlock: 0 }, async (error, event) => {
-        if (error) {
-          console.log("error:", error);
-        } else {
-          const opponent = event.returnValues._opponent;
-          const challanger = event.returnValues._challenger;
+            const challangeHash = soliditySha3(
+              { type: "address", value: challanger },
+              { type: "address", value: opponent }
+            );
 
-          const challangeHash = soliditySha3(
-            { type: "address", value: challanger },
-            { type: "address", value: opponent }
-          );
+            const challengeStatus = await checkChallangeStatus(
+              contract,
+              account,
+              challangeHash
+            );
 
-          const challengeStatus = await checkChallangeStatus(
-            contract,
-            account,
-            challangeHash
-          );
+            if (parseInt(challengeStatus) === 1) {
+              if (opponent === account) {
+                activeChallenges.current.push(challangeHash);
 
-          if (parseInt(challengeStatus) === 1) {
-            if (opponent === account) {
-              activeChallenges.current.push(challangeHash);
+                const battlingMonIds = event.returnValues._monIds;
+                const challangerData = await getPlayerData(
+                  contract,
+                  challanger
+                );
 
-              const battlingMonIds = event.returnValues._monIds;
-              const challangerData = await getPlayerData(contract, challanger);
+                notify(`You have a challenge from ${challangerData.name}`);
 
-              notify(`You have a challenge from ${challangerData.name}`);
-
-              dispatch({
-                type: HANDLE_POPUP_OPEN,
-                popupOpen: true,
-              });
-              dispatch({
-                type: HANDLE_POPUP_COMPONENT_RENDER,
-                popupComponent: (
-                  <AcceptChallenge
-                    opponentData={challangerData}
-                    battlingMonIds={battlingMonIds}
-                  />
-                ),
-              });
-            }
-            if (challanger === account) {
-              activeChallenges.current.push(challangeHash);
+                dispatch({
+                  type: HANDLE_POPUP_OPEN,
+                  popupOpen: true,
+                });
+                dispatch({
+                  type: HANDLE_POPUP_COMPONENT_RENDER,
+                  popupComponent: (
+                    <AcceptChallenge
+                      opponentData={challangerData}
+                      battlingMonIds={battlingMonIds}
+                    />
+                  ),
+                });
+              }
+              if (challanger === account) {
+                activeChallenges.current.push(challangeHash);
+              }
             }
           }
         }
-      });
+      );
 
       contract.events.AcceptChallenge(async (error, event) => {
         if (error) {
