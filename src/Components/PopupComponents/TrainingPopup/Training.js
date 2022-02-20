@@ -122,8 +122,8 @@ function Training({ cardData }) {
               onChange={durationHandler}
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
-              min={0}
-              max={300}
+              min={5}
+              max={180}
               aria-label="pretto slider"
               components={{ Thumb: PrettoComponent }}
             />
@@ -142,7 +142,7 @@ function Training({ cardData }) {
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
               min={0}
-              max={300}
+              max={100}
               components={{ Thumb: PrettoComponent }}
             />
           </div>
