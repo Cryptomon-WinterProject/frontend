@@ -23,6 +23,9 @@
 }
 .ProfilePic {
   height: 13rem;
+  width: 13rem;
+  border-radius: 0.8rem;
+  object-fit: cover;
 }
 .ProfileInfo {
   margin-left: 1.5rem;
@@ -31,6 +34,7 @@
 .ProfileName {
   font-size: var(--font-17);
   font-weight: 700;
+  text-transform: uppercase;
 }
 .ProfileLevelContainer {
   display: flex;

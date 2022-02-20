@@ -1,10 +1,18 @@
 import { createStore, combineReducers } from "redux";
 
-import { example } from "./Reducers/example.reducer";
+import { popupHandle } from "./Reducers/popup.reducer";
+import { contractReducer } from "./Reducers/contract.reducer";
+import { userReducer } from "./Reducers/user.reducer";
+import { navbarReducer } from "./Reducers/navbar.reducer";
 
 export const ConfigureStore = () => {
   const store = createStore(
-    combineReducers({ example }),
+    combineReducers({
+      popupHandle,
+      contractReducer,
+      userReducer,
+      navbarReducer,
+    })
   );
 
   return store;

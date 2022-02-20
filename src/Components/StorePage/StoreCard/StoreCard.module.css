@@ -26,14 +26,14 @@
 .StoreCardName {
   text-transform: uppercase;
   font-size: var(--font-24);
-  font-weight: 900;
+  font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--white);
 }
 .PokemonImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  padding: 2rem;
 }
 .AddBalanceButton {
   grid-gap: 0.5rem !important;

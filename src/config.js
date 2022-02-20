@@ -47,6 +47,15 @@ export const abi = [
         name: "_xpGained",
         type: "uint16",
       },
+<<<<<<< HEAD
+=======
+      {
+        indexed: false,
+        internalType: "uint8",
+        name: "_roundNumber",
+        type: "uint8",
+      },
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
     ],
     name: "AnnounceRoundWinner",
     type: "event",
@@ -307,7 +316,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -328,12 +340,36 @@ export const abi = [
     type: "function",
   },
   {
+<<<<<<< HEAD
+=======
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_id",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_price",
+        type: "uint256",
+      },
+    ],
+    name: "buyCryptomons",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
     inputs: [],
     name: "buyMonCoins",
     outputs: [],
     stateMutability: "payable",
     type: "function",
+<<<<<<< HEAD
     payable: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -371,7 +407,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -396,7 +435,10 @@ export const abi = [
     ],
     stateMutability: "pure",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -496,7 +538,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -541,7 +586,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -593,7 +641,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -613,7 +664,10 @@ export const abi = [
     ],
     stateMutability: "pure",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [],
@@ -654,7 +708,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -706,7 +763,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -753,7 +813,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [],
@@ -767,7 +830,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -799,7 +865,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [],
@@ -813,7 +882,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [],
@@ -827,7 +899,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -870,7 +945,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -900,7 +978,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [],
@@ -914,7 +995,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [],
@@ -1062,7 +1146,10 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
   {
     inputs: [
@@ -1132,6 +1219,7 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+<<<<<<< HEAD
     constant: true,
   },
   {
@@ -1151,5 +1239,7 @@ export const abi = [
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
+=======
+>>>>>>> 5689c84952af4177c896c1f954dec312b6e73cf7
   },
 ];

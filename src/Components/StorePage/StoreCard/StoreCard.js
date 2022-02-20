@@ -4,12 +4,17 @@ import styles from "./StoreCard.module.css";
 import PokemonImage from "../../../Assets/LandingPage/Pokemon.png";
 import MonCoinIcon from "../../../Assets/LandingPage/M-moncoin.svg";
 import Button from "../../Button";
+import { useSelector } from "react-redux";
+import { buyMonCard } from "../../../Services/store.service";
 
-function StoreCard({ monPrice = 30 }) {
+function StoreCard({ cardData }) {
+  const contract = useSelector((state) => state.contractReducer.contract);
+  const account = useSelector((state) => state.contractReducer.account);
+
   function MonCoinComponent() {
     return (
       <div className={styles.MonPrice}>
-        <p>{monPrice}</p>
+        <p>{cardData.price}</p>
         <img
           src={MonCoinIcon}
           alt="monCoinIcon"
@@ -19,11 +24,15 @@ function StoreCard({ monPrice = 30 }) {
     );
   }
 
+  const handlePurchase = async () => {
+    await buyMonCard(contract, account, cardData.monIndex, cardData.price);
+  };
+
   return (
     <div className={styles.StoreCardWrapper}>
-      <img src={PokemonImage} alt="Pokemon" className={styles.PokemonImage} />
+      <img src={cardData.image} alt="Pokemon" className={styles.PokemonImage} />
       <div className={styles.StoreCardContent}>
-        <p className={styles.StoreCardName}>Pichu</p>
+        <p className={styles.StoreCardName}>{cardData.name}</p>
         <Button
           name="Purchase for "
           primaryColor="var(--ter-black)"
@@ -33,6 +42,7 @@ function StoreCard({ monPrice = 30 }) {
           IconComp={MonCoinComponent}
           hoverBgColor="var(--white)"
           reversed
+          onClick={handlePurchase}
         />
       </div>
     </div>

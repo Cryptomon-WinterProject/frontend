@@ -4,7 +4,7 @@ import challengeAsset from "../../Assets/General/challengeAsset.svg";
 
 let tempArr = [];
 let challengeArr = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 5; i++) {
   tempArr.push({
     monProfile: pokemon,
     monName: "Pichu",

@@ -1,13 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "./SwitchButton.module.css";
 
 const SwitchButton = () => {
   const history = useHistory();
-  const [activeCategory, setActiveCategory] = React.useState("store");
+  const navbarState = useSelector((state) => state.navbarReducer.navbarState);
 
   const handleClick = (category) => {
-    setActiveCategory(category);
     history.push(`/${category}`);
   };
   return (
@@ -15,7 +15,7 @@ const SwitchButton = () => {
       <div
         className={styles.SwitchStore}
         style={
-          activeCategory === "store"
+          navbarState === "store"
             ? { background: "var(--sec-black)", color: "var(--white)" }
             : null
         }
@@ -26,7 +26,7 @@ const SwitchButton = () => {
       <div
         className={styles.SwitchAuction}
         style={
-          activeCategory === "auction"
+          navbarState === "auction"
             ? { background: "var(--sec-black)", color: "var(--white)" }
             : null
         }
