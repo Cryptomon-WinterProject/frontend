@@ -93,7 +93,7 @@ const App = () => {
 
   async function setUserData() {
     const userDetails = await getUserData(contract, account);
-    if (userDetails.verified) {
+    if (userDetails?.verified) {
       const monCards = await getUserCards(contract, account);
       const storeCards = await getStoreCards(contract, account);
 
@@ -208,7 +208,7 @@ const App = () => {
       {isInitalized ? (
         <>
           <Switch>
-            {userDetails.verified ? (
+            {userDetails?.verified ? (
               <>
                 <Route exact path="/home">
                   <LandingPage />
