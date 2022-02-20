@@ -47,30 +47,39 @@ https://drive.google.com/file/d/1MY4sTesn01kohd_dsUrUFYJoknegp6v3/view
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset1.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset2.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset3.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset4.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset5.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset6.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset7.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset8.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset9.png)
 
 <br>
+
 ![App Screenshot](https://github.com/Cryptomon-WinterProject/frontend/blob/main/src/Assets/ReadMeAssets/Asset10.png)
 
 ## 🔗 Know the Project Creater
